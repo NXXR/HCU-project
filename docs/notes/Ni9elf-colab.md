@@ -46,4 +46,4 @@
     - simple End-to-End training instead of 3-stage R-CNN
     - ***real time performant (~59 fps)***
 
-// week 2
+- [RGBD Datasets: Past, Present and Future](https://arxiv.org/pdf/1604.00999.pdf) presents a selection of popular RGBD Datasets, some similar to [PASCAL VOC](http://host.robots.ox.ac.uk/pascal/VOC/)
