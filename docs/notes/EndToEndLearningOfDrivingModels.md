@@ -25,4 +25,4 @@
 - (12) Caltagirone, L., Bellone, M., Svensson, L., Wahde, M.: ***Simultaneous perception and pathgeneration using fully convolutional neural networks***. arXiv preprint arXiv:1703.08987(2017)
 - (62) Paxton, C., Raman, V., Hager, G.D., Kobilarov, M.: ***Combining neural networks and treesearch for task and motion planning in challenging environments***. In: IROS (2017)
 - (63) Pendleton, S.D., Andersen, H., Du, X., Shen, X., Meghjani, M., Eng, Y.H., Rus, D., Ang,M.H.: ***Perception, Planning, Control, and Coordination for Autonomous Vehicles***. Machines5(1) (2017)
-77 22 21 56 58 35 74 54 76 47 50 31 64 77 35 28 42 82 6 83 16 78 39 61
+77 22 21 56 58 35 74 54 76 47 50 31 64 77 35 28 42 82 6 83 16 78 39 61 72 44 55
