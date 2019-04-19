@@ -37,6 +37,7 @@
         - odometry via cameras (GoPro) GPS and IMU module
 
 - Driving Model Learning Task:
+
     ![F: (S[t−k+1,t], V[t−k+1,t], L[t−k+1,t], I[t−k+1,t], P[t]) → S[t+1] × V[t+1]](https://github.com/NXXR/HCU-project/blob/master/docs/notes/img/EndToEndLearningOfDrivingModels_LearningTask.png "Learning Task")
     - S: Vehicle's Steering angle
     - V: Vehicle's Velocity
