@@ -37,11 +37,36 @@
         - odometry via cameras (GoPro) GPS and IMU module
 
 - Driving Model Learning Task:
-    - ![F: (S[t−k+1,t], V[t−k+1,t], L[t−k+1,t], I[t−k+1,t], P[t]) → S[t+1] × V[t+1]](https://github.com/NXXR/HCU-project/blob/master/docs/notes/img/EndToEndLearningOfDrivingModels_LearningTask.png "Learning Task")
-    
+    ![F: (S[t−k+1,t], V[t−k+1,t], L[t−k+1,t], I[t−k+1,t], P[t]) → S[t+1] × V[t+1]](https://github.com/NXXR/HCU-project/blob/master/docs/notes/img/EndToEndLearningOfDrivingModels_LearningTask.png "Learning Task")
+    - S: Vehicle's Steering angle
+    - V: Vehicle's Velocity
+    - L: Vehicle's Location
+    - I: Surround-View Video
+    - P: Planned Route
+    - discrete time at sampling rate f => decisions every 1/f seconds
+        - t indicates the timestamp
+        - t-k is the k. previous sample point => the k recent samples are [t-k+1, t]
 
 **Potential Further Readings:**
-- (10) Bojarski, M., Yeres, P., Choromanska, A., Choromanski, K., Firner, B., Jackel, L.D., Muller,U.: ***Explaining how a deep neural network trained with end-to-end learning steers a car***. CoRR (2017)
-- (12) Caltagirone, L., Bellone, M., Svensson, L., Wahde, M.: ***Simultaneous perception and pathgeneration using fully convolutional neural networks***. arXiv preprint arXiv:1703.08987(2017)
-- (62) Paxton, C., Raman, V., Hager, G.D., Kobilarov, M.: ***Combining neural networks and treesearch for task and motion planning in challenging environments***. In: IROS (2017)
-- (63) Pendleton, S.D., Andersen, H., Du, X., Shen, X., Meghjani, M., Eng, Y.H., Rus, D., Ang,M.H.: ***Perception, Planning, Control, and Coordination for Autonomous Vehicles***. Machines5(1) (2017)
+- (2018) ***End-to-end driving via conditional imitation learning***. Codevilla, Mueller, Lopez, Koltun, Dosovitskiy
+- (2018) ***Event-based vision meets deep learning on steering prediction for self-driving cars***. Maqueda, Loquercio, Gallego, Garcia, Scaramuzza
+
+- (2017) ***Explaining how a deep neural network trained with end-to-end learning steers a car***. Bojarski, Yeres, Choromanska, Choromanski, Firner, Jackel, Muller
+- (2017) ***Simultaneous perception and pathgeneration using fully convolutional neural networks***. Caltagirone, Bellone, Svensson, Wahde
+- (2017) ***Computer vision for autonomous vehicles: Problems, datasets and state-of-the-art***. Janai, Gueney, Behl, Geiger
+- (2017) ***Pathtrack: Fast trajectory annotation with path supervision***. Manen, Gygli, Dai, Van Gool
+- (2017) ***Combining neural networks and treesearch for task and motion planning in challenging environments***. Paxton, Raman, Hager, Kobilarov
+- (2017) ***Perception, Planning, Control, and Coordination for Autonomous Vehicles***. Pendleton, Andersen, Du, Shen, Meghjani, Eng, Rus, Ang
+
+- (2016) ***Surround vehicles trajectory analysis with recurrent neural networks***. Khosroshahi, Ohn-Bar, Trivedi
+- (2016) ***Trajectories and maneuvers of surrounding vehicles with panoramic camera arrays***. Dueholm, Kristoffersen, Satzoda, Moeslund, Trivedi
+
+- (2015) ***Toward personalized, context-aware routing***. Yang, Guo, Ma, Jensen
+
+- (2014) ***3d traffic scene understanding from movable platforms***. Geiger, Lauer, Wojek, Stiller, Urtasun
+
+- (2012) ***Autonomous ground vehicles—concepts and a path to the future***. Luettel, Himmelsbach, Wuensche
+
+- (2011) ***Towards fully autonomous driving: Systems and algorithms***. Levinson, Askeland, Becker, Dolson, Held, Kammel, Kolter, Langer, Pink, Pratt, Sokolsky, Stanek, Stavens, Teichman, Werling, Thrun
+
+- (1948) ***Cognitive maps in rats and men***. Tolman
