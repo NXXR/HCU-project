@@ -1,5 +1,5 @@
 # [End-to-End Learning of Driving Models with Surround-View Cameras and Route Planners](https://arxiv.org/abs/1803.10158)
-*by S. Hecker, D. Dai and L. Van Gool
+*by S. Hecker, D. Dai and L. Van Gool*
 
 - Information from all around the vehicle needs to be gathered and integrated to make safe decisions.
 - Human drivers us virtual extensions to their limited field of view (side- & rear-view mirrors) and their mental or digital map to make decisions and select a route to their destination.
