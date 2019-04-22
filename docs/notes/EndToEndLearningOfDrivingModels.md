@@ -11,46 +11,78 @@
 - End-to-end learning of the driving model: map inputs from surround-view and route planner directly to low-level driving maneuvers
     - tracking for traffic agents & control devices deferred to future work
 
-- Driving Models for Automated Cars:
-    1. Mediated Perception
-        - recognition of all driving relevant objects (lanes, traffic signs, traffic lights, cars, pedestrians, etc.)
-        - realized by diverse sensors (i.e. cameras, laser sensors, radar, GPS and HD maps)
-        - current state-of-the-art for autonomous driving
-    2. End-to-End Mapping
-        - direct mapping from ssensory input to maneuvers
-            - 1980s: enural network to learn direct mapping from images to steering angle
+##### Driving Models for Automated Cars:
+1. Mediated Perception
+    - recognition of all driving relevant objects (lanes, traffic signs, traffic lights, cars, pedestrians, etc.)
+    - realized by diverse sensors (i.e. cameras, laser sensors, radar, GPS and HD maps)
+    - current state-of-the-art for autonomous driving
+2. End-to-End Mapping
+    - direct mapping from ssensory input to maneuvers
+        - 1980s: neural network to learn direct mapping from images to steering angle
 
 - Driving Scene Understanding
     - detection and tracking of moving objects elaborated in other sources (72, 44, 55, 39, 61)
 
-- Sensors used:
-    - Cameras
-        - double coverage of surround view
-        - 4 cameras mounted in 90 deg angles (0, 90, 180, 270)
-        - 4 cameras mounted in 45 deg to the first set (45, 135, 225, 315)
-    - Route Planners
-        - not much attention to integration of route planners with autonomous drive learning
-        - OpenStreetMaps geodata used for route planning (and TomTom Map, albeit not public => workaround screen capture off iPhone 7)
-        - past driving  trajectories (stack of GPS coordinates) and GPS tags of the next 300 meters ahead taken as representation of planned route and current position
-    - Human Driving Input
-        - steering wheel angle, vehicle speed via CAN bus
-        - odometry via cameras (GoPro) GPS and IMU module
+##### Sensors used:
+- Cameras
+    - double coverage of surround view
+    - 4 cameras mounted in 90 deg angles (0, 90, 180, 270)
+    - 4 cameras mounted in 45 deg to the first set (45, 135, 225, 315)
+- Route Planners
+    - not much attention to integration of route planners with autonomous drive learning
+    - OpenStreetMaps geodata used for route planning (and TomTom Map, albeit not public => workaround screen capture off iPhone 7)
+    - past driving  trajectories (stack of GPS coordinates) and GPS tags of the next 300 meters ahead taken as representation of planned route and current position
+- Human Driving Input
+    - steering wheel angle, vehicle speed via CAN bus
+    - odometry via cameras (GoPro) GPS and IMU module
 
-- Driving Model Learning Task:
+##### Driving Model Learning Task:
+![F: (S_[t−k+1,t], V_[t−k+1,t], L_[t−k+1,t], I_[t−k+1,t], P_[t]) → S_[t+1] × V_[t+1]](./img/EndToEndLearningOfDrivingModels_LearningTask.png "Learning Task")
+- S: Vehicle's Steering angle
+- V: Vehicle's Velocity
+- L: Vehicle's Location
+- I: Surround-View Video
+- P: Planned Route
+- discrete time at sampling rate f => decisions every 1/f seconds
+    - t indicates the timestamp
+    - t-k is the k. previous sample point => the k recent samples are [t-k+1, t]
 
-    ![F: (S_[t−k+1,t], V_[t−k+1,t], L_[t−k+1,t], I_[t−k+1,t], P_[t]) → S_[t+1] × V_[t+1]](./img/EndToEndLearningOfDrivingModels_LearningTask.png "Learning Task")
-    - S: Vehicle's Steering angle
-    - V: Vehicle's Velocity
-    - L: Vehicle's Location
-    - I: Surround-View Video
-    - P: Planned Route
-    - discrete time at sampling rate f => decisions every 1/f seconds
-        - t indicates the timestamp
-        - t-k is the k. previous sample point => the k recent samples are [t-k+1, t]
+- learns from multiple previous frames in order to better understand traffic dynamics
 
-- Driving Model loss Function:
-    
-    ![L(θ) =N∑[n=1](l(S^n_[t+1],F_s(S^n_[t−k+1,t],V^n_[t−k+1,t],L^n_[t−k+1,t],I^n_[t−k+1,t],P_t))+λl(V^n_[t+1],F_v(S^n_[t−k+1,t],V^n_[t−k+1,t],L^n_[t−k+1,t],I^n_[t−k+1,t],P_t)))](./img/EndToEndLearningOfDrivingModels_LossFunction.png "Loss Function")
+##### Driving Model loss Function:
+![L(θ) =N∑[n=1](l(S^n_[t+1],F_s(S^n_[t−k+1,t],V^n_[t−k+1,t],L^n_[t−k+1,t],I^n_[t−k+1,t],P_t))+λl(V^n_[t+1],F_v(S^n_[t−k+1,t],V^n_[t−k+1,t],L^n_[t−k+1,t],I^n_[t−k+1,t],P_t)))](./img/EndToEndLearningOfDrivingModels_LossFunction.png "Loss Function")
+- λ: Parameter to balance the losses (=1 in this work)
+- l(...): L2 loss function for continuous regression
+
+- System trained with only 4/8 Cameras (0, 90, 180, 270)
+    - data recorded with all 8 to keep flexibility for future work
+
+##### Neural Network Layout:
+![](./img/EndToEndLearningOfDrivingModels_NetworkLayout.png "Network Layout")
+- multiple Convolutional Neural Networks (CNN) as Feature Encoders
+    - ResNet34 model, pre-trained on the ImageNet dataset
+- 4 Long Short-Term Memories (LSTM) as temporal encoders for information from the surround-view cameras
+- a Fully-connected Network (FN) to fuse information from the cameras and the map
+- 2 Fully-connected Networks (FN) to output future speed and steering angle
+
+##### Training:
+- 80/20 training/testing (24/30 driving routes for training)
+- synchronized video at 10 fps (60fps generated very large dataset)
+- synchronized sample:
+    - 4 frames at 256x256 (front, left, right, back)
+    - 256x256 rendered image for TomTom route planner **OR** 300x2 Matrix for OSM route planner
+    - CAN bus data
+    - GPS data of the *'past'*
+- Adam Optimizer
+    - initial learning rate: 10^-4
+    - batch size: 16 for 5 epochs
+        
+    => training time ~3 days
+- Surround-view camera training
+    - 4 frames (t-0.9s, t-0.6s, t-0.3s, t) => frequency = 3.33
+        
+    => 4x4 = 16 CNNs for capturing street-view scene
+
 
 **Potential Further Readings:**
 - (2018) ***End-to-end driving via conditional imitation learning***. Codevilla, Mueller, Lopez, Koltun, Dosovitskiy
