@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/HCU-project.iml" filepath="$PROJECT_DIR$/.idea/HCU-project.iml" />
       <module fileurl="file://$PROJECT_DIR$/../HCU-project.wiki/.idea/HCU-project.wiki.iml" filepath="$PROJECT_DIR$/../HCU-project.wiki/.idea/HCU-project.wiki.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../HCU-project.wiki/.idea/HCU-project.wiki.iml" filepath="$PROJECT_DIR$/../HCU-project.wiki/.idea/HCU-project.wiki.iml" />
     </modules>
   </component>
 </project>

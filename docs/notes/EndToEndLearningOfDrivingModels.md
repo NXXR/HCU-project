@@ -38,7 +38,7 @@
 
 - Driving Model Learning Task:
 
-    ![F: (S[t−k+1,t], V[t−k+1,t], L[t−k+1,t], I[t−k+1,t], P[t]) → S[t+1] × V[t+1]](https://github.com/NXXR/HCU-project/blob/master/docs/notes/img/EndToEndLearningOfDrivingModels_LearningTask.png "Learning Task")
+    ![F: (S_[t−k+1,t], V_[t−k+1,t], L_[t−k+1,t], I_[t−k+1,t], P_[t]) → S_[t+1] × V_[t+1]](./img/EndToEndLearningOfDrivingModels_LearningTask.png "Learning Task")
     - S: Vehicle's Steering angle
     - V: Vehicle's Velocity
     - L: Vehicle's Location
@@ -47,6 +47,10 @@
     - discrete time at sampling rate f => decisions every 1/f seconds
         - t indicates the timestamp
         - t-k is the k. previous sample point => the k recent samples are [t-k+1, t]
+
+- Driving Model loss Function:
+    
+    ![L(θ) =N∑[n=1](l(S^n_[t+1],F_s(S^n_[t−k+1,t],V^n_[t−k+1,t],L^n_[t−k+1,t],I^n_[t−k+1,t],P_t))+λl(V^n_[t+1],F_v(S^n_[t−k+1,t],V^n_[t−k+1,t],L^n_[t−k+1,t],I^n_[t−k+1,t],P_t)))](./img/EndToEndLearningOfDrivingModels_LossFunction.png "Loss Function")
 
 **Potential Further Readings:**
 - (2018) ***End-to-end driving via conditional imitation learning***. Codevilla, Mueller, Lopez, Koltun, Dosovitskiy
