@@ -37,7 +37,7 @@
     - odometry via cameras (GoPro) GPS and IMU module
 
 ##### Driving Model Learning Task:
-![F: (S_[t−k+1,t], V_[t−k+1,t], L_[t−k+1,t], I_[t−k+1,t], P_[t]) → S_[t+1] × V_[t+1]](./img/EndToEndLearningOfDrivingModels_LearningTask.png "Learning Task")
+![F: (S_[t−k+1, t], V_[t−k+1, t], L_[t−k+1, t], I_[t−k+1, t], P_[t]) → S_[t+1] × V_[t+1]](./img/EndToEndLearningOfDrivingModels_LearningTask.png "Learning Task")
 - S: Vehicle's Steering angle
 - V: Vehicle's Velocity
 - L: Vehicle's Location
@@ -50,7 +50,7 @@
 - learns from multiple previous frames in order to better understand traffic dynamics
 
 ##### Driving Model loss Function:
-![L(θ) =N∑[n=1](l(S^n_[t+1],F_s(S^n_[t−k+1,t],V^n_[t−k+1,t],L^n_[t−k+1,t],I^n_[t−k+1,t],P_t))+λl(V^n_[t+1],F_v(S^n_[t−k+1,t],V^n_[t−k+1,t],L^n_[t−k+1,t],I^n_[t−k+1,t],P_t)))](./img/EndToEndLearningOfDrivingModels_LossFunction.png "Loss Function")
+![L(θ) =N∑[n=1](l(S^n_[t+1],F_s(S^n_[t−k+1, t],V^n_[t−k+1, t],L^n_[t−k+1, t],I^n_[t−k+1, t],P_t))+λl(V^n_[t+1],F_v(S^n_[t−k+1, t],V^n_[t−k+1, t],L^n_[t−k+1, t],I^n_[t−k+1, t],P_t)))](./img/EndToEndLearningOfDrivingModels_LossFunction.png "Loss Function")
 - λ: Parameter to balance the losses (=1 in this work)
 - l(...): L2 loss function for continuous regression
 
@@ -82,6 +82,26 @@
     - 4 frames (t-0.9s, t-0.6s, t-0.3s, t) => frequency = 3.33
         
     => 4x4 = 16 CNNs for capturing street-view scene
+
+##### Results
+- Mean Square Error (MSE) for comparison
+    - state-of-the art compared to similar models
+    - speed and steering angle prediction 0.3s into the future easy for network, as inputs usually don't change faster than the prediction range
+
+- in truly autonomous vehicles the past driving states may not always be correct,
+    - policy to rely on past *'ground-truth'* states should be used with caution
+    - else errors may be exaggerated via a feedback loop
+    
+    => S_[t-k+1, t] and V_[t-k+1, t] removed (no previous human driving maneuvers available)
+    - force the network to learn based on knowledge from route planners and road situations
+
+- visual evaluation of the planned route (TomTom) better results than plain GPS coordinates (OSM)
+    - improvement in steering angles
+    - GPS locations lack high-level & contextual information (distinguishing between *'highway exit'* and *'slight right bend'*)
+
+- surround-view cameras reduce overall speed prediction, **but** are especially useful on roads without traffic control lights or signs
+    - can see approaching entities, while front-only camera cars are blind in many directions
+    - more precise understanding of the surroundings
 
 
 **Potential Further Readings:**
