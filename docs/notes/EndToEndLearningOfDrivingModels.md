@@ -103,7 +103,6 @@
     - can see approaching entities, while front-only camera cars are blind in many directions
     - more precise understanding of the surroundings
 
-
 **Potential Further Readings:**
 - (2018) ***End-to-end driving via conditional imitation learning***. Codevilla, Mueller, Lopez, Koltun, Dosovitskiy
 - (2018) ***Event-based vision meets deep learning on steering prediction for self-driving cars***. Maqueda, Loquercio, Gallego, Garcia, Scaramuzza
