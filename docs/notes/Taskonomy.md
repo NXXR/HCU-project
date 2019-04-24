@@ -13,3 +13,31 @@
 => affinity matrix among tasks based on ability to be derived from representation of different task
 - solving tasks  with far less data compared to individual training
     - avoids imposing prior assumptions on task space
+
+##### Related Work
+- structure among learning tasks useful for multiple fields of application
+    - *Self-supervised learning* leverages inherent relationships to learn an expensive task from a cheap surrogate (e.g. objet detection from colorization)
+        - Taskonomy approach can discover obscure relationships in a large space of tasks
+    - *Meta-learning* is similar to Taskonomy approach as it seeks to also find a computational meta-structure of the space of tasks
+    - *Learning Theory* uses many existing learning structures to provide generalization guarantees
+        - various approaches:
+            - modeling transferability by mapping a hypothesis for one task onto a hypothesis for another
+            - information-based transferability
+            - modeling inductive bias
+        - either reliant on intractable computations or restricted model/task
+
+##### Method
+- maximize collective performance on a set of tasks
+- V = T∪S: task dictionary
+    - T = {t_1,...,t_n}: set of tasks targeted to be solved
+    - S = {s_1,...,s_m}: set of tasks that can be trained (source)
+    - T - (T∩S): tasks wanted to be solved but unable to train (target-only)
+- task taxonomy is a computationally found, directed hypergraph that captures task transferability over any given task dictionary
+    - edges represent feasible transfer case with it's weight being the prediction of it's performance
+- graph is used to estimate optimal transfer policy
+- staged approach:
+    ![Taskonomy Stages](./img/Taskonomy_stages.png "Taskonomy Staged Approach")
+    1. task-specific network for each task in S is trained
+    2. feasible transfers are trained, including higher-order transfers (multiple input tasks to one target)
+    3. affinities from transfer function performances are normalized
+    4. synthesizing hypergraph, which can predict the performance of transfer policies and optimize for the best solution
