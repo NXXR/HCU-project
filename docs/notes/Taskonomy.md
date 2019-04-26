@@ -52,3 +52,8 @@
         - pixel-to-pixel: 15-layer fully convolutional network
         - low dimensional tasks: 2-3 fully connected layers
 - all networks trained with the same hyperparameters
+
+##### Results
+![Taskonomy Result](./img/Taskonomy_result.png "Taskonomy Results")
+- Networks are well trained and show stable results
+- in general, performing on par or better than state-of-the-art networks (no formal benchmark)
