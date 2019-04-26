@@ -57,3 +57,4 @@
 ![Taskonomy Result](./img/Taskonomy_result.png "Taskonomy Results")
 - Networks are well trained and show stable results
 - in general, performing on par or better than state-of-the-art networks (no formal benchmark)
+- tests compared to random transfers prove an underlying strong structure and prove the Taskonomy to be a good model of it
