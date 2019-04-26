@@ -39,5 +39,16 @@
     ![Taskonomy Stages](./img/Taskonomy_stages.png "Taskonomy Staged Approach")
     1. task-specific network for each task in S is trained
     2. feasible transfers are trained, including higher-order transfers (multiple input tasks to one target)
+        - source should have sufficient information for solving target task, and have the information accessible (easily extractable)
+        - sampling procedure for filtering out higher-order transfers that are less likely to yield good results
     3. affinities from transfer function performances are normalized
     4. synthesizing hypergraph, which can predict the performance of transfer policies and optimize for the best solution
+
+##### Experiments
+- Network Architacture as homogeneously as possible to avoid injecting bias
+    - Encoder: fully convolutional ResNet-50 without pooling
+    - Transfer Functions: shallow networks wiht 2 convolutional layers
+    - Decoder: 
+        - pixel-to-pixel: 15-layer fully convolutional network
+        - low dimensional tasks: 2-3 fully connected layers
+- all networks trained with the same hyperparameters
