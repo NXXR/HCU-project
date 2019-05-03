@@ -33,4 +33,12 @@
             - T = (t_x, t_z): translation
             - r_0: rotation on x-z-plane
     - loss function
-        ![Loss Function]()
+        ![Loss Function](./img/LayoutNet_LossFunction.png "Loss Function")
+        - m_e: layout boundary map
+        - m_c: layout corner map
+        - d = {s_w, s_l, s_h, t_x, t_z, r0}: feature vector
+        - p: pixel probability in m_e
+        - q: pixel probability in m_c
+        - ^: respective ground truth
+        - n:number of pixels (resolution)
+        - α, ß, γ: weights for each loss term (here: α = ß = 1 & γ = 0.01)
