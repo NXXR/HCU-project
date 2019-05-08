@@ -87,3 +87,7 @@
 ![Non-cuboid layout results](./img/LayoutNet_NonCuboidResults.png "Non-cuboid layout results")
 - only small dataset (→ imperfect corner/boundary detection)
 - network able to predicts complex layout
+
+##### Conclusion
+- LayoutNet relaxes commonly assumed cuboid layout
+- pre-aligning based on vanishing points and Manhattan constraints improve quantitative results
