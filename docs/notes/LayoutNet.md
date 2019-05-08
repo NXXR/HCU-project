@@ -42,3 +42,25 @@
         - ^: respective ground truth
         - n:number of pixels (resolution)
         - α, ß, γ: weights for each loss term (here: α = ß = 1 & γ = 0.01)
+- Training details
+    - each network trained separately
+    - ground truth smoothing
+        - 2D boundary and corner map is binary with thin point/curve → difficult training, huge penalty for small deviances
+        - dilute ground truth map with factor 4 and smooth with Gaussian kernel 20x20
+    - augment training samples by horizontal rotation (0°-360°), left-right flipping, luminance change (0.5-2), and ±10° rotation on image plane for perspective images
+- 3D layout optimization
+    - top corners always above bottom ones (vertical walls only / no slanted walls)
+    - bottom corners on same ground plane (level floor / no different levels in room)
+    - intersecting walls always perpendicular (manhattan layout / cuboid or L-shaped room)
+    - columns of panorama correspond to rotation angle of camera
+    - score function for 3D layout
+        ![3D Score Function](./img/LayoutNet_3DScore.png "3D Score Function")
+        - L: candidate (cardinality = #walls×2)
+        - C: 2D projected corner positions of L
+        - L_e: set of projected wall-ceiling boundaries (connect nearby corners)(cardinality = #walls)
+        - L_f: set of projected wall-floor boundaries (connect nearby corners)(cardinality = #walls)
+        - P_corner: pixel-wise probability value on m_c (layout corner map)
+        - P_ceil: pixel-wise probability value on m_e (layout boundary map)
+        - P_floor: pixel-wise probability value on m_e (layout boundary map)
+        - w_junc, w_ceil, w_floor: term weights (= 1.0, 0.5, 1.0 → set using grid search)
+        
