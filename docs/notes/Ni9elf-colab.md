@@ -17,9 +17,9 @@
     - confidence score is IoU (Intersection over Union) between ground truth and predicted box, or 0 if no object inside
     
     => each bounding box has 5 values:
-    >- relative center of box (x, y)
-    >- width & height
-    >- confidence score
+    > - relative center of box (x, y)
+    > - width & height
+    > - confidence score
 3. each grid cell predicts *C* conditional class probabilities (if the cell is containing an object)
 >> The paper uses *S* = 7, *B* = 2
 >

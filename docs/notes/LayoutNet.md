@@ -2,7 +2,7 @@
 *by C. Zou, A. Colburn,Q. Shan, and D. Hoiem*
 
 ##### Introduction
-- Layout representable as a set of projectted corner positions/boundaries (3D Mesh)
+- Layout representable as a set of projected corner positions/boundaries (3D Mesh)
 - among the best for perspective images (panoramic) and comparable in speed
 - 3 step approach
     1. analyzing vanishing points & alignment w/ floor (wall-wall-boundaries become vertical lines)
