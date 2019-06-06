@@ -8,37 +8,59 @@
 ### Literature Review
 ##### [Deep Learning to Detect Objects in Videos from RGB-D Input](http://jderobot.org/Ni9elf-colab)
 In the project, the convolutional neural network YOLO (You Only Look Once) is extended and adapted to receive images 
-containing color and depth information. The network is end-to-end trained to detect and classify objects, however the
- resulting network is tuned to detect persons in video streams instead of objects. The resulting network and YOLO both
- show significantly faster detection times compared to similar networks (R-CNN and SSD). To adapt to the underlying 
- YOLO network's input layer, the depth information is transferred into a colormap and interleaved into the RGB data. 
- Additionally the network identifies objects in the whole image at once, instead of identifying regions of interest and
-  only focusing on those, by sectioning the image into a grid and examining each cell in parallel.
+containing color and depth information. The network is end-to-end trained to detect and classify objects, however the 
+resulting network is tuned to detect persons in video streams instead of objects. The resulting network and YOLO both 
+show significantly faster detection times compared to similar networks (R-CNN and SSD). To adapt to the underlying 
+YOLO network's input layer, the depth information is transferred into a colormap and interleaved into the RGB data. 
+Additionally the network identifies objects in the whole image at once, instead of identifying regions of interest and 
+only focusing on those, by sectioning the image into a grid and examining each cell in parallel.
 
 ##### [LayoutNet: Reconstructing the 3D Room Layout from a Single RGB Image](https://arxiv.org/abs/1803.08999)
-LayoutNet is a network trained to extract the 3D room layout from surround view images
-- extract layout from surround view images for relaxed manhattan layouts (rectangular corners) instead of cuboid
-- 3 step approach
-    1. analyzing vanishing points & alignment w/ floor (wall-wall-boundaries become vertical lines)
-        - reprojection into 2d equirectangular space
-        - detecting long line segments in overlapped perspective view
-        - find/determine 3 mutually orthogonal vanishing points
-    2. corner (layout junctions) and boundary probability map predicted directly on image (CNN w/ encoder-decoder structure)
-    3. 3D layout parameters are optimized to fit predicted corners and boundaries
-- network structure:
-    - Deep panorama encoder (6-channel feature map & Manhattan line feature map)
-    - 2D layout decoder (2D feature map boundary prediction by 7 layers of nearest neighbor up-sampling & 2D corner map)
-    - 3D layout regressor (2D corners & boundaries into 3D layout parameters) to produce better corners & boundries
-- network components trained separately
-- smoothing of ground truth for less penalty on small deviances
-- sample ~1000 layout candidates by shifting wall positions within 10% (less than 30 s per image)
-- performs better or equal to current state-of-the-art networks
+LayoutNet is a network trained to extract the 3D room layout from surround view images. it operates using a three 
+step approach:
+First the surround view image is projected into 2D equirectangular space and aligned to the floor 
+plane so that wall-to-wall boundaries become vertical lines in the image. Additionally, the first step 
+detects long sine segments for possible wall-to-floor/ceiling boundaries and determines three mutually orthogonal 
+vanishing points to establish a coordinate system for the room layout.
+In the second step the results from the first step are used to create a corner and boundary probability map directly 
+on top of the original image, representing determined locations of corners and lines along the determined 
+wall-to-wall, wall-to-floor and wall-to-ceiling boundaries.
+Finally, the parameters of the 3D layout are optimized to fit the predicted corners and boundaries of the generated 
+corner and boundary maps.
+The network is structured into 3 subsystems which are trained separately:
+A deep panorama encoder is used to extract a 6-channel feature map as well as a Manhattan line feature map from the 
+surround view image.
+A 2D layout decoder trained to predict 2D feature maps of boundary predictions and corner predictions from 7 layers of 
+nearest neighbor up-sampling.
+A 3D layout regressor to find and optimize 3D layout parameters from 2D corners and boundaries. Optimization is done 
+by sampling ~1000 layout candidates by shifting boundary position within ±10% and determining the best candidate 
+based on a score function. The sampling takes less than 30 s per image.
+While the sampling is too intensive for real time applications, the network performs better or equal to current 
+state-of-the-art networks.
 
 ##### [Have I Reached the Intersection: A Deep Learning-based Approach for Intersection Detection from Monocular Cameras](https://ieeexplore.ieee.org/document/8206317)
-
+IntersectNet is a end-to-end trained, Long-Term Recurrent Convolutional Network (LRCN), a mix of a Convolutional 
+Neural Network (CNN) for spacial understanding and a Recurrent Neural Network (RNN) for temporal understanding. It 
+aims to classify  video sequences into intersection and non-intersection sequences, as well as classify the 
+intersection into T- and X-junctions. The convolutional neural network acts as a visual feature extractor, while the 
+recurrent neural network serves to carry long-term dependencies. The resulting network was trained on ~1488 
+sequences extracted and augmented from Oxford RobotCar and Lara traffic-light detection datasets. The temporal 
+component leads to a significant improvement (2.5-5.5% improvement) compared to single frame networks without a 
+Recurrent Neural Network component.
 
 ##### [End-to-End Learning of Driving Models with Surround-View Cameras and Route Planners](https://arxiv.org/abs/1803.10158)
-
+this paper proposes features to improve autonomous driving by incorporating surround view video stream and route 
+planning information to and end-to-end driving model. The surround view video is generated from two sets or four 
+cameras arranged in 90 degree angles, and the route planning data is either a stack of GPS pins from OpenStreetMap or 
+a visual image stream from a TomTom navigational device. The driving model consists of multiple convolutional neural 
+networks for feature encoding, as well as four long short-term memory networks for temporal encoding, and 
+fully-connected networks to fuse input information and predict steering angle and speed for 0.3 seconds into the 
+future. The steering angle and speed are rather easy for the network to predict, as the input data does not change 
+significantly in the prediction range. The paper also mentions relying on the past as ground truth may be dangerous, 
+as past driving states may not be correct. To avoid this, the network is trained without ground truth input, so the 
+network solely relies on input data of the route planner and the road situation. However the paper proves that 
+incorporation of surround view cameras and a route planning component are highly beneficial, especially on low speed 
+environments without traffic control agents.
 
 ##### [End-to-End Navigation with Branch Turning Support Using Convolutional Neural Network](https://www.semanticscholar.org/paper/End-to-End-Navigation-with-Branch-Turning-Support-Seiya-Carballo/b9db6c16504dd3e37fb4d47f140174ef80e7a04e)
 
