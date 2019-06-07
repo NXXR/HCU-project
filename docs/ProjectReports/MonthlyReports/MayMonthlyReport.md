@@ -49,7 +49,7 @@ component leads to a significant improvement (2.5-5.5% improvement) compared to 
 Recurrent Neural Network component.
 
 ##### [End-to-End Learning of Driving Models with Surround-View Cameras and Route Planners](https://arxiv.org/abs/1803.10158)
-this paper proposes features to improve autonomous driving by incorporating surround view video stream and route 
+This paper proposes features to improve autonomous driving by incorporating surround view video stream and route 
 planning information to and end-to-end driving model. The surround view video is generated from two sets or four 
 cameras arranged in 90 degree angles, and the route planning data is either a stack of GPS pins from OpenStreetMap or 
 a visual image stream from a TomTom navigational device. The driving model consists of multiple convolutional neural 
@@ -63,6 +63,11 @@ incorporation of surround view cameras and a route planning component are highly
 environments without traffic control agents.
 
 ##### [End-to-End Navigation with Branch Turning Support Using Convolutional Neural Network](https://www.semanticscholar.org/paper/End-to-End-Navigation-with-Branch-Turning-Support-Seiya-Carballo/b9db6c16504dd3e37fb4d47f140174ef80e7a04e)
-
+The project focused on end-to-end training a network to detect intersections and followed assigned trajectories 
+through the intersection. Initial training along a predetermined path resulted in a model for each trajectory, 
+however later implementations were trained to follow and unknown trajectory by introducing a vector to the next 
+target after the convolutional layers of the feature encoder. Additionally the system is able to handle complex 
+trajectories with multiple branching options and a pure pursuit sub algorithm to return to the predicted trajectory 
+upon deviation. This way the network learned to navigate locally based on the target direction vector. 
 
 ##### [Taskonomy: Disentangling Task Transfer Learning](https://arxiv.org/abs/1804.08328)
