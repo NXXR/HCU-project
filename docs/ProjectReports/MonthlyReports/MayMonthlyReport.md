@@ -71,3 +71,8 @@ trajectories with multiple branching options and a pure pursuit sub algorithm to
 upon deviation. This way the network learned to navigate locally based on the target direction vector. 
 
 ##### [Taskonomy: Disentangling Task Transfer Learning](https://arxiv.org/abs/1804.08328)
+Taskonomy is a meta-learning project that seeks to find the complex mapping between different tasks. This way 
+relationships between learning tasks can be used to avoid minute and expensive isolated training. Additionally, the 
+successively more abstract representations can be used for multiple related outputs.
+Based on source and target tasks a hypergraph in created to visualize task learning transferability, which can be 
+used to estimate an optimal transfer policy.
