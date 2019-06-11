@@ -1,11 +1,17 @@
-# May Monthly Report
+# May Monthly Report - Project Survey
 
 ### Contents
-- Literature Review
-- Project Survey
-- Project Scope
+- [Literature Review](#Literature-Review)
+    - [Deep Learning to Detect Objects in Videos from RGB-D Input](#Deep-Learning-to-Detect-Objects-in-Videos-from-RGB-D-Input)
+    - [LayoutNet: Reconstructing the 3D Room Layout from a Single RGB Image](#LayoutNet:-Reconstructing-the-3D-Room-Layout-from-a-Single-RGB-Image)
+    - [Have I Reached the Intersection: A Deep Learning-based Approach for Intersection Detection from Monocular Cameras](#Have-I-Reached-the-Intersection:-A-Deep-Learning-based-Approach-for-Intersection-Detection-from-Monocular-Cameras)
+    - [End-to-End Learning of Driving Models with Surround-View Cameras and Route Planners](#End-to-End-Learning-of-Driving-Models-with-Surround-View-Cameras-and-Route-Planners)
+    - [Taskonomy: Disentangling Task Transfer Learning](#Taskonomy:-Disentangling-Task-Transfer-Learning)
+- [Project Scope](#Project-Scope)
+    - [Comparison to Similar Projects from the Literature Review](#Comparison-to-Similar-Projects-from-the-Literature-Review)
 
 ### Literature Review
+
 ##### [Deep Learning to Detect Objects in Videos from RGB-D Input](http://jderobot.org/Ni9elf-colab)
 In the project, the convolutional neural network YOLO (You Only Look Once) is extended and adapted to receive images 
 containing color and depth information. The network is end-to-end trained to detect and classify objects, however the 
@@ -76,3 +82,28 @@ relationships between learning tasks can be used to avoid minute and expensive i
 successively more abstract representations can be used for multiple related outputs.
 Based on source and target tasks a hypergraph in created to visualize task learning transferability, which can be 
 used to estimate an optimal transfer policy.
+
+### Project Scope
+Initially the project aims to gain an understanding of basic machine learning systems in conjunction with computer 
+vision. Furthermore the goal is to create a neural network that is capable to identify junctions in indoor corridors 
+from images obtained by a surround view camera. Once a suitable network to recognize corridors and junctions is in 
+place, an end-to-end driving model is planned to be trained to navigate a mobile robot unobstucted along the corridors. 
+Depending on the progress, a route planning system is planned to be implemented to allow navigation to set waypoints.
+An optional goal is to implement an object detection system to identify additional, sometimes moving, obstacles and 
+targets that are fed to the route planner to be inserted into the currently planned path of the mobile robot.
+
+##### Comparison to Similar Projects from the Literature Review
+| Feature                      | HCU Project | End-to-End Navigation | End-to-End Learning of Driving Models | 
+| :--------------------------- | :---------: | :-------------------: | :-----------------------------------: |
+| ***Single Sensor System***   | O           | X                     | X                                     |
+| ***Path Detection***         | O           | O (Lidar)             | O
+| *Route Planning*             | O           | junction trajectories | external system (GPS)                 |
+| *Obstacle Detection*         | O           | X                     | O                                     |
+
+While both projects from the literature employ end-to-end driving models, they both differ significantly to this 
+projects as neither relies on a single sensor for input, the Navigation Project uses a frontal camera paired with 
+Lidar to map and detect the corridor layout, while the Driving model in the other project relies on a multi-camera 
+surround view setup paired with a route planning system, as the driving model is constructed for road vehicles.
+All projects use path detection is some form, however the route planning through the detected environment is in the 
+Navigation projects case realized in given instructions for singular junction trajectories, similar to the planned 
+system for this project, and the Driving model in the other project uses an external system for the planned route.
