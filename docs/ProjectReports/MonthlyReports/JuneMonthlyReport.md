@@ -17,3 +17,4 @@ The desktop workstation
 
 ### Tutorial Projects
 #### Classification of Movie Reviews
+- 50.000
