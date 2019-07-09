@@ -68,4 +68,13 @@ Additionally the loss and accuracy are plotted over the training process.
 The k-fold cross-validation approach performs on average very similar to the hold-out validation model. However, as it
  is training multiple networks, training takes significantly longer. Due to this, hold-out validation is recommended
  when a big dataset is available. With a limited dataset the f-fold cross-validation produces a more stable result as it
- is forming the average of several networks that are trained on different variations of the same data.  
+ is forming the average of several networks that are trained on different variations of the same data.
+ 
+#### Classification of Newswire Topics
+This introductory project uses a multiclass classification network to decide the topic of a newswire article.
+This dataset consists of 11.228 newswire articles (reduced to the 10.000 most occurring words), organized into 46
+ mutually exclusive topics.
+The dataset is divided equally into test and training subsets (5.614 articles each).
+The project is also used to compare networks using a 50% dropout after each layer, with networks without any dropout.
+
+The dropout model consists 
