@@ -43,7 +43,7 @@ For k-fold cross-validation, the training data is split into 5 sets of 5.000 rev
 
 The network model consists of three layers:
 1. a fully connected layer with 16 units and a RELU activation function
-2. another fully connected layer with 16 units and RELU activation function
+2. another fully connected layer with 16 units and a RELU activation function
 3. an output layer with one unit and sigmoid activation function
 
 The optimisation  is RMSprop with a learning rate of 0.001 and the loss function is binary cross-entropy.
@@ -62,8 +62,8 @@ After training the k-fold validation scores are averaged and compared to the val
 |**Total**|**0,8770**|**0,8682**|
 
 Additionally the loss and accuracy are plotted over the training process.
-![](../../notes/img/classifyMovieReviews_Loss.png)
-![](../../notes/img/classifyMovieReviews_Accuracy.png)
+![](https://github.com/NXXR/HCU-project/tree/master/docs/notes/img/classifyMovieReviews_Loss.png)
+![](https://github.com/NXXR/HCU-project/tree/master/docs/notes/img/classifyMovieReviews_Accuracy.png)
 
 The k-fold cross-validation approach performs on average very similar to the hold-out validation model. However, as it
  is training multiple networks, training takes significantly longer. Due to this, hold-out validation is recommended
@@ -77,4 +77,27 @@ This dataset consists of 11.228 newswire articles (reduced to the 10.000 most oc
 The dataset is divided equally into test and training subsets (5.614 articles each).
 The project is also used to compare networks using a 50% dropout after each layer, with networks without any dropout.
 
-The dropout model consists 
+The dropout model consists of three layers with a dropout after each layer:
+1. a fully connected layer with 64 units and a RELU activation function
+    1.1. 50% Dropout, drops half of the values in the output and rescales the remaining values by 2
+2. another fully connected layer with 64 units and a RELU activation function
+    2.1. 50% Dropout, drops half of the values in the output and rescales the remaining values by 2
+3. an output layer with 46 units and softmax activation
+
+The optimisation is RMSprop with a learning rate of 0.001 and the loss function is categorical cross-entropy.
+Both networks are trained for 20 epochs.
+
+After training, the networks the show simillar validation scores:
+
+|       | With Dropout | Without Dropout |
+|------:|:-------------|:----------------|
+| Score | 0.7707       | 0.7791          |
+
+Additionally the loss and accuracy are plotted over the training process
+![](https://github.com/NXXR/HCU-project/tree/master/docs/notes/img/classifyNewswireTopics_Loss.png)
+![](https://github.com/NXXR/HCU-project/tree/master/docs/notes/img/classifyNewswireTopics_Accuracy.png)
+
+While the network without dropout arrives at an optimal loss and accuracy faster, needing less epochs, the network with
+ dropout need a longer training time but is very resistant to overfitting. While the training loss and accuracy scores
+ of the dropout model is well below the normal models scores, the validation scores are very close after just a few
+ more epochs.
