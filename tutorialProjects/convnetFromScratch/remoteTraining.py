@@ -1,5 +1,6 @@
 from keras import layers, models, losses, optimizers
 from keras.preprocessing.image import ImageDataGenerator
+from keras.utils import multi_gpu_model
 import os
 import datetime
 import pickle
@@ -20,6 +21,7 @@ model.add(layers.Dense(1, activation="sigmoid"))
 
 model.summary()
 
+model = multi_gpu_model(model, gpus=2)
 model.compile(
     loss=losses.binary_crossentropy,
     optimizer=optimizers.RMSprop(lr=0.0001),
