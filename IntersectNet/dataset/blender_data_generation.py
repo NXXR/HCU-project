@@ -1,5 +1,6 @@
 import bpy
-import bmesh
+from mathutils import Euler
+
 
 # delete all objects in scene
 bpy.ops.object.select_all(action="SELECT")
@@ -8,26 +9,22 @@ bpy.ops.object.delete(use_global=False)
 # place floor plane
 bpy.ops.mesh.primitive_plane_add(location=(0, 0, -0.01), radius=10)
 
-# place corridor wall
-verts = [(   1,  10,   0), (   1,  10, 2.5),
-         (   1, -10,   0), (   1, -10, 2.5)]
-mesh = bpy.data.meshes.new("mesh")
-obj = bpy.data.objects.new("XPWall", mesh)
+# place corridor wall (X+)
+verts = [(2, -1, 0), (8, -1, 0), (8, -1, 2.5), (2, -1, 2.5),
+         (2, 1, 0), (8, 1, 0), (8, 1, 2.5), (2, 1, 2.5)]
+faces = [(0, 1, 2, 3), (4, 5, 6, 7), (2, 3, 7, 6), (0, 1, 5, 4)]
 
-scene = bpy.context.scene
-scene.objects.link(obj)
-scene.objects.active = obj
-obj.select = True
+mesh = bpy.data.meshes.new("Xpos")
+obj = bpy.data.objects.new("Xpos", mesh)
 
-mesh = bpy.context.object.data
-bm = bmesh.new()
+bpy.context.scene.objects.link(obj)
 
-for v in verts:
-    bm.verts.new(v)
+mesh.from_pydata(verts, [], faces)
+mesh.update(calc_edges=True)
 
-# TODO: Add Faces
-# mesh.from_pydata(verts,[],[(0, 1, 2, 3)])
-# mesh.update(calc_edges=True)
-
-bm.to_mesh(mesh)
-bm.free()
+# place corridor wall (Y+)
+bpy.ops.object.select_all(action="DESELECT")
+bpy.data.objects["Xpos"].select = True
+bpy.ops.object.duplicate()
+bpy.data.objects["Xpos.001"].name = "Ypos"
+bpy.data.objects["Ypos"].rotation_euler = Euler((0, 0, radians(90)))
