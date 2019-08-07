@@ -1,6 +1,7 @@
 import bpy
 import math
 import os
+import copy
 from mathutils import Euler
 from random import randint
 
@@ -12,7 +13,6 @@ material_options = {
     "floor": [],
     "wall": []
 }
-
 for filename in tex_names:
     img = bpy.data.images.load(os.path.join(tex_path, filename))
     fileinfo = filename.split("_")
@@ -31,18 +31,14 @@ for filename in tex_names:
     mtex.emission_color_factor = 0.5
     mtex.use_map_density = True
     mtex.mapping = "FLAT"
-    # scale texture
-    mat.texture_slots[0].scale[0] = 20
-    mat.texture_slots[0].scale[1] = 20
     # sort into dictionary
-    if fileinfo[0] == "floor":
+    if "floor" in fileinfo[0]:
+        # scale for floor
+        mat.texture_slots[0].scale[0] = 20
+        mat.texture_slots[0].scale[1] = 20
         material_options["floor"].append(mat)
-    elif fileinfo[0] == "wall":
-        mat.texture_slots[0].scale[0] = 1
-        mat.texture_slots[0].scale[1] = 1
-        material_options["wall"].append(mat)
-    elif fileinfo[0] == "floorwall":
-        material_options["floor"].append(mat)
+    if "wall" in fileinfo[0]:
+        # scale for wall
         mat.texture_slots[0].scale[0] = 1
         mat.texture_slots[0].scale[1] = 1
         material_options["wall"].append(mat)
@@ -120,21 +116,15 @@ center_options = {
 
 
 def create_random_centerpiece(connections: int):
-    try:
-        bpy.ops.object.select_all(action="DESELECT")
-        bpy.data.objects["Centerpiece"].select = True
-    except KeyError:
-        print("Centerpiece doesn't exist, creating...")
-    finally:
-        mesh = bpy.data.meshes.new("Centerpiece")
-        obj = bpy.data.objects.new("Centerpiece", mesh)
+    mesh = bpy.data.meshes.new("Centerpiece")
+    obj = bpy.data.objects.new("Centerpiece", mesh)
 
-        bpy.context.scene.objects.link(obj)
+    bpy.context.scene.objects.link(obj)
 
-        option = randint(1, 2)
-        mesh.from_pydata(center_options[connections][option]["verts"], [], center_options[connections][option]["faces"])
-        mesh.update(calc_edges=True)
-        bpy.data.objects["Centerpiece"].rotation_euler = Euler((0, 0, randint(0, 3) * math.radians(90)))
+    option = randint(1, 2)
+    mesh.from_pydata(center_options[connections][option]["verts"], [], center_options[connections][option]["faces"])
+    mesh.update(calc_edges=True)
+    bpy.data.objects["Centerpiece"].rotation_euler = Euler((0, 0, randint(0, 3) * math.radians(90)))
 
 
 # delete all objects in scene
@@ -150,10 +140,10 @@ bpy.data.objects["Floor"].data.materials.append(material_options["floor"][randin
 # place ceiling plane
 bpy.ops.mesh.primitive_plane_add(location=(0, 0, 2.5), radius=10)
 bpy.data.objects["Plane"].name = "Ceiling"
-## add random floor (TODO: ceiling) texture to ceiling
+## add random texture to ceiling TODO: ceiling textures
 bpy.data.objects["Ceiling"].data.materials.append(material_options["floor"][randint(0, len(material_options["floor"])-1)])
 
-# place corridor X+
+# place corridor X+ TODO: separate walls
 verts = [(2, -1, 0), (8, -1, 0), (8, -1, 2.5), (2, -1, 2.5),
          (2, 1, 0), (8, 1, 0), (8, 1, 2.5), (2, 1, 2.5)]
 faces = [(0, 1, 2, 3), (4, 5, 6, 7)]
@@ -203,11 +193,11 @@ bpy.ops.object.lamp_add(type="POINT", location=(0, 0, 2))
 inside_intersection = True
 ## randomize position
 if inside_intersection:
-    cam_x = (randint(-10, 10) / 10) - 0.1
-    cam_y = (randint(-10, 10) / 10) - 0.1
+    cam_x = randint(-9, 9) / 10
+    cam_y = randint(-9, 9) / 10
 else:
-    cam_x = (randint( 30, 70) / 10) - 0.1
-    cam_y = (randint(-10, 10) / 10) - 0.1
+    cam_x = randint(29, 69) / 10
+    cam_y = randint(-9, 9) / 10
 ## use randomized position and randomize rotation around z-axis
 bpy.ops.object.camera_add(location=(cam_x, cam_y, 0.611), rotation=(math.radians(90), 0, math.radians(randint(0, 359))))
 bpy.data.objects["Camera"].data.type = "PANO"
