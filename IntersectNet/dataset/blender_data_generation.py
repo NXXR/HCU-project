@@ -30,7 +30,8 @@ for filename in tex_names:
     mtex.use_map_color_emission = True
     mtex.emission_color_factor = 0.5
     mtex.use_map_density = True
-    mtex.mapping = "FLAT"
+    mtex.mapping = "CUBE"
+    mat.specular_intensity = 0.01
     # sort into dictionary
     if "floor" in fileinfo[0]:
         # scale for floor
@@ -39,8 +40,8 @@ for filename in tex_names:
         material_options["floor"].append(mat)
     if "wall" in fileinfo[0]:
         # scale for wall
-        mat.texture_slots[0].scale[0] = 1
-        mat.texture_slots[0].scale[1] = 1
+        mat.texture_slots[0].scale[0] = 8
+        mat.texture_slots[0].scale[1] = 2.5
         material_options["wall"].append(mat)
 
 
@@ -143,19 +144,15 @@ bpy.data.objects["Plane"].name = "Ceiling"
 ## add random texture to ceiling TODO: ceiling textures
 bpy.data.objects["Ceiling"].data.materials.append(material_options["floor"][randint(0, len(material_options["floor"])-1)])
 
-# place corridor X+ TODO: separate walls
+# place corridor X+
 verts = [(2, -1, 0), (8, -1, 0), (8, -1, 2.5), (2, -1, 2.5),
          (2, 1, 0), (8, 1, 0), (8, 1, 2.5), (2, 1, 2.5)]
 faces = [(0, 1, 2, 3), (4, 5, 6, 7)]
-
 mesh = bpy.data.meshes.new("Xpos")
 obj = bpy.data.objects.new("Xpos", mesh)
-
 bpy.context.scene.objects.link(obj)
-
 mesh.from_pydata(verts, [], faces)
 mesh.update(calc_edges=True)
-
 bpy.data.objects["Xpos"].data.materials.append(material_options["wall"][randint(0, len(material_options["wall"])-1)])
 
 # place corridor Y+
@@ -179,25 +176,47 @@ bpy.ops.object.duplicate()
 bpy.data.objects["Xpos.001"].name = "Yneg"
 bpy.data.objects["Yneg"].rotation_euler = Euler((0, 0, math.radians(-90)))
 
+# place outside walls
+verts = [(10, 10, 0),  (-10, 10, 0),  (-10, -10, 0),  (10, -10, 0),
+         (10, 10, 2.5),(-10, 10, 2.5),(-10, -10, 2.5),(10, -10, 2.5)]
+faces = [(0, 1, 5, 4), (1, 2, 6, 5), (2, 3, 7, 6), (3, 0, 4, 7)]
+mesh = bpy.data.meshes.new("borderwall")
+obj = bpy.data.objects.new("borderwall", mesh)
+bpy.context.scene.objects.link(obj)
+mesh.from_pydata(verts, [], faces)
+mesh.update(calc_edges=True)
+bpy.data.objects["borderwall"].data.materials.append(
+    bpy.data.objects["Xpos"].data.materials[0]
+    )
+
 # place random centerpiece
 num_connections = randint(2, 4)
 create_random_centerpiece(num_connections)
+# apply corridor texture to centerpiece
+bpy.data.objects["Centerpiece"].data.materials.append(
+    bpy.data.objects["Xpos"].data.materials[0]
+    )
 
-# place light source (wip:sun)
+# place light source
 bpy.ops.object.lamp_add(type="POINT", location=(0, 0, 2))
-
-#bpy.data.objects["<OBJECTNAME>"].data.materials.append(mat)
-#bpy.data.objects["<OBJECTNAME>"].data.materials[0] = mat
+for i in [3, 6, 9]:
+    bpy.ops.object.lamp_add(type="POINT", location=(i, 0, 2))
+    bpy.ops.object.lamp_add(type="POINT", location=(0, i, 2))
+    bpy.ops.object.lamp_add(type="POINT", location=(-i, 0, 2))
+    bpy.ops.object.lamp_add(type="POINT", location=(0, -i, 2))
+# reduce radius (intensity)
+for lamp in bpy.data.lamps:
+    lamp.distance = 3
 
 # place camera
-inside_intersection = True
+inside_intersection = False
 ## randomize position
 if inside_intersection:
     cam_x = randint(-9, 9) / 10
     cam_y = randint(-9, 9) / 10
 else:
-    cam_x = randint(29, 69) / 10
-    cam_y = randint(-9, 9) / 10
+    cam_x = randint(28, 68) / 10
+    cam_y = randint(-8, 8) / 10
 ## use randomized position and randomize rotation around z-axis
 bpy.ops.object.camera_add(location=(cam_x, cam_y, 0.611), rotation=(math.radians(90), 0, math.radians(randint(0, 359))))
 bpy.data.objects["Camera"].data.type = "PANO"
