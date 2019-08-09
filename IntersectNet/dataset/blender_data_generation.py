@@ -6,7 +6,9 @@ from mathutils import Euler
 from random import randint
 
 # setup textures
-tex_path = os.path.join("C:/", "Users", "M.Zeumer", "Workspace", "HCU-project", "IntersectNet", "dataset", "textures")
+desktop_flag = False
+path_prefix = os.path.join("C:/", "Users", "M.Zeumer", "Workspace") if desktop_flag else os.path.join("C:/", "Users", "m_zeu", "PycharmProjects")
+tex_path = os.path.join(path_prefix, "HCU-project", "IntersectNet", "dataset", "textures")
 tex_path = os.path.normpath(tex_path)
 tex_names = os.listdir(tex_path)
 material_options = {
@@ -223,6 +225,6 @@ bpy.data.objects["Camera"].data.type = "PANO"
 bpy.data.objects["Camera"].data.lens = 5
 
 if num_connections > 2 and inside_intersection:
-    print("Intersection")
+    print("Save As Intersection")
 else:
-    print("Corridor")
+    print("Save As Corridor")
