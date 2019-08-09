@@ -211,13 +211,13 @@ for lamp in bpy.data.lamps:
     lamp.distance = 3
 
 # place camera
-inside_intersection = False
+inside_intersection = True
 ## randomize position
 if inside_intersection:
     cam_x = randint(-9, 9) / 10
     cam_y = randint(-9, 9) / 10
 else:
-    cam_x = randint(28, 68) / 10
+    cam_x = randint(30, 70) / 10
     cam_y = randint(-8, 8) / 10
 ## use randomized position and randomize rotation around z-axis
 bpy.ops.object.camera_add(location=(cam_x, cam_y, 0.611), rotation=(math.radians(90), 0, math.radians(randint(0, 359))))
