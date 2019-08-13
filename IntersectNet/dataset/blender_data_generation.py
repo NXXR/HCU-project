@@ -1,12 +1,17 @@
 import bpy
 import math
 import os
-import copy
+import datetime
 from mathutils import Euler
 from random import randint
 
-# setup textures
 desktop_flag = False
+inside_intersection = True
+output_location = "train"  # test/train/validation
+
+output_suffix = os.path.join("HCU-project", "IntersectNet", "dataset", "images")
+
+# setup textures
 path_prefix = os.path.join("C:/", "Users", "M.Zeumer", "Workspace") if desktop_flag else os.path.join("C:/", "Users", "m_zeu", "PycharmProjects")
 tex_path = os.path.join(path_prefix, "HCU-project", "IntersectNet", "dataset", "textures")
 tex_path = os.path.normpath(tex_path)
@@ -192,7 +197,7 @@ bpy.data.objects["borderwall"].data.materials.append(
     )
 
 # place random centerpiece
-num_connections = randint(2, 4)
+num_connections = randint(3, 4) if inside_intersection else 2
 create_random_centerpiece(num_connections)
 # apply corridor texture to centerpiece
 bpy.data.objects["Centerpiece"].data.materials.append(
@@ -211,7 +216,6 @@ for lamp in bpy.data.lamps:
     lamp.distance = 3
 
 # place camera
-inside_intersection = True
 ## randomize position
 if inside_intersection:
     cam_x = randint(-9, 9) / 10
@@ -224,7 +228,16 @@ bpy.ops.object.camera_add(location=(cam_x, cam_y, 0.611), rotation=(math.radians
 bpy.data.objects["Camera"].data.type = "PANO"
 bpy.data.objects["Camera"].data.lens = 5
 
-if num_connections > 2 and inside_intersection:
-    print("Save As Intersection")
-else:
-    print("Save As Corridor")
+imgtype = "intersection" if inside_intersection else "corridor"
+output_name = "{}.{}.png".format(imgtype, datetime.datetime.utcnow().strftime("%H%M%f"))
+output_filepath = os.path.join(path_prefix, output_suffix, output_location, output_name)
+os.path.normpath(output_filepath)
+
+#bpy.context.scene.render.filepath = 'pathToOutputImage'
+#bpy.context.scene.render.resolution_x = w #perhaps set resolution in code
+#bpy.context.scene.render.resolution_y = h
+#bpy.ops.render.render()
+
+bpy.data.scenes['Scene'].render.filepath = output_filepath
+bpy.ops.render.render(write_still=True)
+# TODO: RuntimeError: Error: Cannot render, no camera
