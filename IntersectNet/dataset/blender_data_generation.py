@@ -233,11 +233,5 @@ output_name = "{}.{}.png".format(imgtype, datetime.datetime.utcnow().strftime("%
 output_filepath = os.path.join(path_prefix, output_suffix, output_location, output_name)
 os.path.normpath(output_filepath)
 
-#bpy.context.scene.render.filepath = 'pathToOutputImage'
-#bpy.context.scene.render.resolution_x = w #perhaps set resolution in code
-#bpy.context.scene.render.resolution_y = h
-#bpy.ops.render.render()
-
 bpy.data.scenes['Scene'].render.filepath = output_filepath
 bpy.ops.render.render(write_still=True)
-# TODO: RuntimeError: Error: Cannot render, no camera
