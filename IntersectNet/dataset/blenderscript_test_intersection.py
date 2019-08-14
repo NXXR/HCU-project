@@ -5,9 +5,9 @@ import datetime
 from mathutils import Euler
 from random import randint
 
-desktop_flag = False
+desktop_flag = True
 inside_intersection = True
-output_location = "train"  # test/train/validation
+output_location = "test"  # test/train/validation
 
 output_suffix = os.path.join("HCU-project", "IntersectNet", "dataset", "images")
 
@@ -227,6 +227,7 @@ else:
 bpy.ops.object.camera_add(location=(cam_x, cam_y, 0.611), rotation=(math.radians(90), 0, math.radians(randint(0, 359))))
 bpy.data.objects["Camera"].data.type = "PANO"
 bpy.data.objects["Camera"].data.lens = 5
+bpy.context.scene.camera = bpy.data.objects["Camera"]
 
 imgtype = "intersection" if inside_intersection else "corridor"
 output_name = "{}.{}.png".format(imgtype, datetime.datetime.utcnow().strftime("%H%M%f"))
