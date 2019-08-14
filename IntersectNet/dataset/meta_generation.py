@@ -19,6 +19,6 @@ for filename, amount in dataset:
     for i in range(0, amount):
         process = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
         output, error = process.communicate()
-        print("{} ".format(i+1).join(output.decode("utf-8").split("\r\n")[-6:-4]))
+        print("".join(output.decode("utf-8").split("\r\n")[-6:-4]))
         if error: print(error)
 print("--- Generation Finished ---")
