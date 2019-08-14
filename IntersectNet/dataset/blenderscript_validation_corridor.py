@@ -148,7 +148,7 @@ bpy.data.objects["Floor"].data.materials.append(material_options["floor"][randin
 # place ceiling plane
 bpy.ops.mesh.primitive_plane_add(location=(0, 0, 2.5), radius=10)
 bpy.data.objects["Plane"].name = "Ceiling"
-## add random texture to ceiling TODO: ceiling textures
+## add random texture to ceiling
 bpy.data.objects["Ceiling"].data.materials.append(material_options["floor"][randint(0, len(material_options["floor"])-1)])
 
 # place corridor X+
