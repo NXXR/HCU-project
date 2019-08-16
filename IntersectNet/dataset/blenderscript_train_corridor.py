@@ -7,7 +7,7 @@ from random import randint
 
 desktop_flag = True
 inside_intersection = False
-output_location = "train"  # test/train/validation
+output_location = os.path.join("train", "corridor")  # test/train/validation & corridor/intersection
 
 output_suffix = os.path.join("HCU-project", "IntersectNet", "dataset", "images")
 
