@@ -9,7 +9,7 @@ dataset = [("blenderscript_train_corridor.py",          2500),
            ("blenderscript_validation_corridor.py",     1000),
            ("blenderscript_validation_intersection.py", 1000),
            ("blenderscript_test_corridor.py",           1000),
-           ("blenderscript_test_intersection.py",          1000),
+           ("blenderscript_test_intersection.py",       1000),
           ]
 
 # generate images for each script
