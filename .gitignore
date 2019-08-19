@@ -88,4 +88,4 @@ fabric.properties
 
 # datasets (except for zips)
 tutorialProjects/convnetFromScratch/dataset/*/*/*.jpg
-C:\Users\M.Zeumer\Workspace\HCU-project\IntersectNet\dataset\images
+IntersectNet/dataset/images/*
