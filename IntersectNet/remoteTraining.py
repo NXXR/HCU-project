@@ -51,6 +51,8 @@ validation_generator = datagen.flow_from_directory(
     class_mode="binary"
 )
 
+time_start = datetime.datetime.now()
+
 history = model.fit_generator(
     train_generator,
     steps_per_epoch=100,
@@ -58,7 +60,14 @@ history = model.fit_generator(
     validation_data=validation_generator,
     validation_steps=50
 )
+
+time_end = datetime.datetime.now()
+time_training = time_end - time_start
+print("Training Time: {}".format(time_training))
+
 history = history.history
+history["traintime"] = time_training
+
 filename = "intersectNet_{}".format(datetime.datetime.utcnow().strftime("%m%d-%H%M"))
 model.save(os.path.join(os.getcwd(), "models/{}.h5".format(filename)))
 print("saved model: {}.h5".format(filename))
