@@ -7,13 +7,13 @@ from random import randint
 
 desktop_flag = True
 inside_intersection = False
-output_location = os.path.join("test", "corridor")  # test/train/validation & corridor/intersection
+output_location = os.path.join("train", "corridor")  # test/train/validation & corridor/intersection
 
-output_suffix = os.path.join("HCU-project", "IntersectNet", "dataset", "images")
+output_suffix = os.path.join("HCU-project", "IntersectNet", "dataset")
 
 # setup textures
 path_prefix = os.path.join("C:/", "Users", "M.Zeumer", "Workspace") if desktop_flag else os.path.join("C:/", "Users", "m_zeu", "PycharmProjects")
-tex_path = os.path.join(path_prefix, "HCU-project", "IntersectNet", "dataset", "textures")
+tex_path = os.path.join(path_prefix, "HCU-project", "IntersectNet", "dataset", "generation", "textures")
 tex_path = os.path.normpath(tex_path)
 tex_names = os.listdir(tex_path)
 material_options = {
