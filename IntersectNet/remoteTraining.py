@@ -5,8 +5,8 @@ import os
 import datetime
 import pickle
 
-dataset_width = 960
-dataset_height = 540
+dataset_width = 267
+dataset_height = 150
 
 model = models.Sequential()
 
