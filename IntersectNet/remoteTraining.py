@@ -56,7 +56,7 @@ time_start = datetime.datetime.now()
 history = model.fit_generator(
     train_generator,
     steps_per_epoch=100,
-    epochs=1000,
+    epochs=200,
     validation_data=validation_generator,
     validation_steps=50
 )
