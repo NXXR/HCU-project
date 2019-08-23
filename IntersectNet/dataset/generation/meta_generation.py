@@ -2,7 +2,7 @@ import subprocess
 import os
 
 blender_path = os.path.join("C:/", "Program Files", "Blender Foundation", "Blender")
-script_path = os.path.join("C:/", "Users", "M.Zeumer", "Workspace", "HCU-project", "IntersectNet", "dataset")
+script_path = os.path.join("C:/", "Users", "M.Zeumer", "Workspace", "HCU-project", "IntersectNet", "dataset", "generation")
 # list with script names and number of images to be generated
 dataset = [("blenderscript_train_corridor.py",          2500),
            ("blenderscript_train_intersection.py",      2500),
