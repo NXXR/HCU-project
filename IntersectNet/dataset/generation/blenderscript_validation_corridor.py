@@ -224,7 +224,7 @@ else:
     cam_x = randint(30, 70) / 10
     cam_y = randint(-8, 8) / 10
 ## use randomized position and randomize rotation around z-axis
-bpy.ops.object.camera_add(location=(cam_x, cam_y, 0.611), rotation=(math.radians(90), 0, math.radians(randint(0, 359))))
+bpy.ops.object.camera_add(location=(cam_x, cam_y, 0.611), rotation=(math.radians(90), 0, math.radians(randint(60, 120))))
 bpy.data.objects["Camera"].data.type = "PANO"
 bpy.data.objects["Camera"].data.lens = 5
 bpy.context.scene.camera = bpy.data.objects["Camera"]
