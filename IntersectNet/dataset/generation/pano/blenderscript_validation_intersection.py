@@ -7,12 +7,12 @@ from random import randint
 
 desktop_flag = True
 inside_intersection = True
-output_location = os.path.join("train", "intersection")  # test/train/validation & corridor/intersection
+output_location = os.path.join("validation", "intersection")  # test/train/validation & corridor/intersection
 
 # flag if camera in center or side corridor when not inside intersection
 in_center = randint(0,1)
 
-output_suffix = os.path.join("HCU-project", "IntersectNet", "dataset")
+output_suffix = os.path.join("HCU-project", "IntersectNet", "dataset", "pano")
 
 # setup textures
 path_prefix = os.path.join("C:/", "Users", "M.Zeumer", "Workspace") if desktop_flag else os.path.join("C:/", "Users", "m_zeu", "PycharmProjects")
@@ -219,12 +219,12 @@ for lamp in bpy.data.lamps:
 ## randomize position
 if inside_intersection:
     bpy.ops.object.camera_add(
-        location=(randint(-9, 9) / 10, randint(-9, 9) / 10, 0.611),
+        location=(randint(-7, 7) / 10, randint(-7, 7) / 10, 0.611),
         rotation=(math.radians(90), 0, math.radians(randint(0, 359)))
     )
 else:
-    cam_x = (randint(-9, 9) / 10) if in_center else (randint(30, 70) / 10)
-    cam_y = (randint(-9, 9) / 10) if in_center else (randint(-8, 8) / 10)
+    cam_x = (randint(-7, 7) / 10) if in_center else (randint(30, 70) / 10)
+    cam_y = (randint(-7, 7) / 10)
     rot = randint(0,359) if in_center else randint(60, 120)
     bpy.ops.object.camera_add(
         location=(cam_x, cam_y, 0.611),
