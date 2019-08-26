@@ -29,15 +29,21 @@ model.add(layers.Dense(1, activation="sigmoid"))
 
 model.summary()
 
-model = multi_gpu_model(model, gpus=2)
-model.compile(
+pano_model = models.clone_model(model)
+norm_model = models.clone_model(model)
+
+pano_model = multi_gpu_model(pano_model, gpus=2)
+norm_model = multi_gpu_model(norm_model, gpus=2)
+pano_model.compile(
     loss=losses.binary_crossentropy,
     optimizer=optimizers.RMSprop(lr=0.0001),
     metrics=["acc"]
 )
-
-pano_model = models.clone_model(model)
-norm_model = models.clone_model(model)
+norm_model.compile(
+    loss=losses.binary_crossentropy,
+    optimizer=optimizers.RMSprop(lr=0.0001),
+    metrics=["acc"]
+)
 
 datagen = ImageDataGenerator(rescale=1./255)
 
