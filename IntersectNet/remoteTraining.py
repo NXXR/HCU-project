@@ -36,41 +36,68 @@ model.compile(
     metrics=["acc"]
 )
 
+pano_model = models.clone_model(model)
+norm_model = models.clone_model(model)
+
 datagen = ImageDataGenerator(rescale=1./255)
 
-train_generator = datagen.flow_from_directory(
-    os.path.join(os.getcwd(), "dataset/train"),
+norm_train_generator = datagen.flow_from_directory(
+    os.path.join(os.getcwd(), "dataset/normal/train"),
     target_size=(dataset_width, dataset_height),
     batch_size=32,
     class_mode="binary"
 )
-validation_generator = datagen.flow_from_directory(
-    os.path.join(os.getcwd(), "dataset/validation"),
+pano_train_generator = datagen.flow_from_directory(
+    os.path.join(os.getcwd(), "dataset/pano/train"),
+    target_size=(dataset_width, dataset_height),
+    batch_size=32,
+    class_mode="binary"
+)
+norm_validation_generator = datagen.flow_from_directory(
+    os.path.join(os.getcwd(), "dataset/normal/validation"),
+    target_size=(dataset_width, dataset_height),
+    batch_size=32,
+    class_mode="binary"
+)
+pano_validation_generator = datagen.flow_from_directory(
+    os.path.join(os.getcwd(), "dataset/pano/validation"),
     target_size=(dataset_width, dataset_height),
     batch_size=32,
     class_mode="binary"
 )
 
 time_start = datetime.datetime.now()
-
-history = model.fit_generator(
-    train_generator,
+pano_history = pano_model.fit_generator(
+    pano_train_generator,
     steps_per_epoch=100,
     epochs=200,
-    validation_data=validation_generator,
+    validation_data=pano_validation_generator,
     validation_steps=50
 )
+pano_traintime = datetime.datetime.now() - time_start
 
-time_end = datetime.datetime.now()
-time_training = time_end - time_start
-print("Training Time: {}".format(time_training))
+time_start = datetime.datetime.now()
+norm_history = norm_model.fit_generator(
+    norm_train_generator,
+    steps_per_epoch=100,
+    epochs=200,
+    validation_data=norm_validation_generator,
+    validation_steps=50
+)
+norm_traintime = datetime.datetime.now() - time_start
 
-history = history.history
-history["traintime"] = time_training
+print("Training Time: {}(normal) {}(panorama)".format(norm_traintime, pano_traintime))
+
+norm_history = norm_history.history
+norm_history["traintime"] = norm_traintime
+pano_history = pano_history.history
+pano_history["traintime"] = pano_traintime
 
 filename = "intersectNet_{}".format(datetime.datetime.utcnow().strftime("%m%d-%H%M"))
-model.save(os.path.join(os.getcwd(), "models/{}.h5".format(filename)))
-print("saved model: {}.h5".format(filename))
-with open("models/{}.hist".format(filename), "wb+") as file:
-    pickle.dump(history, file)
-print("saved history: {}.hist".format(filename))
+norm_model.save(os.path.join(os.getcwd(), "models/{}/norm.h5".format(filename)))
+pano_model.save(os.path.join(os.getcwd(), "models/{}/pano.h5".format(filename)))
+with open("models/{}/norm.hist".format(filename), "wb+") as file:
+    pickle.dump(norm_history, file)
+with open("models/{}/pano.hist".format(filename), "wb+") as file:
+    pickle.dump(pano_history, file)
+print("saved {} files".format(filename))
