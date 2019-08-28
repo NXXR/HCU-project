@@ -100,6 +100,7 @@ pano_history = pano_history.history
 pano_history["traintime"] = pano_traintime
 
 filename = "intersectNet_{}".format(datetime.datetime.utcnow().strftime("%m%d-%H%M"))
+os.makedirs("models/{}".format(filename))
 norm_model.save(os.path.join(os.getcwd(), "models/{}/norm.h5".format(filename)))
 pano_model.save(os.path.join(os.getcwd(), "models/{}/pano.h5".format(filename)))
 with open("models/{}/norm.hist".format(filename), "wb+") as file:
