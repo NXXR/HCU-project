@@ -8,6 +8,8 @@ import pickle
 dataset_width = 150
 dataset_height = 84
 
+epochs = 60
+
 model = models.Sequential()
 
 model.add(layers.Conv2D(32, (3, 3), activation="relu", input_shape=(dataset_width, dataset_height, 3)))
@@ -76,7 +78,7 @@ time_start = datetime.datetime.now()
 pano_history = pano_model.fit_generator(
     pano_train_generator,
     steps_per_epoch=100,
-    epochs=200,
+    epochs=epochs,
     validation_data=pano_validation_generator,
     validation_steps=50
 )
@@ -86,7 +88,7 @@ time_start = datetime.datetime.now()
 norm_history = norm_model.fit_generator(
     norm_train_generator,
     steps_per_epoch=100,
-    epochs=200,
+    epochs=epochs,
     validation_data=norm_validation_generator,
     validation_steps=50
 )
