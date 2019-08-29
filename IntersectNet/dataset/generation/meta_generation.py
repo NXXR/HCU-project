@@ -9,14 +9,12 @@ dataset = [
             ("pano/blenderscript_train_intersection.py",        2500),
             ("pano/blenderscript_validation_corridor.py",       1000),
             ("pano/blenderscript_validation_intersection.py",   1000),
-            ("pano/blenderscript_test_corridor.py",             1000),
-            ("pano/blenderscript_test_intersection.py",         1000),
             ("normal/blenderscript_train_corridor.py",          2500),
             ("normal/blenderscript_train_intersection.py",      2500),
             ("normal/blenderscript_validation_corridor.py",     1000),
             ("normal/blenderscript_validation_intersection.py", 1000),
-            ("normal/blenderscript_test_corridor.py",           1000),
-            ("normal/blenderscript_test_intersection.py",       1000),
+            ("blenderscript_test_corridor.py",                  1000),
+            ("blenderscript_test_intersection.py",              1000),
           ]
 
 # generate images for each script

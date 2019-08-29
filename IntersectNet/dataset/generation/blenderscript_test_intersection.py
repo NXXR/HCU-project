@@ -6,13 +6,13 @@ from mathutils import Euler
 from random import randint
 
 desktop_flag = True
-inside_intersection = False
-output_location = os.path.join("test", "corridor")  # test/train/validation & corridor/intersection
+inside_intersection = True
+output_location = os.path.join("test", "intersection")  # test/train/validation & corridor/intersection
 
 # flag if camera in center or side corridor when not inside intersection
 in_center = randint(0,1)
 
-output_suffix = os.path.join("HCU-project", "IntersectNet", "dataset", "normal")
+output_suffix = os.path.join("HCU-project", "IntersectNet", "dataset")
 
 # setup textures
 path_prefix = os.path.join("C:/", "Users", "M.Zeumer", "Workspace") if desktop_flag else os.path.join("C:/", "Users", "m_zeu", "PycharmProjects")
@@ -236,7 +236,17 @@ bpy.context.scene.camera = bpy.data.objects["Camera"]
 
 imgtype = "intersection" if inside_intersection else "corridor"
 output_name = "{}.{}.png".format(imgtype, datetime.datetime.utcnow().strftime("%H%M%f"))
-output_filepath = os.path.join(path_prefix, output_suffix, output_location, output_name)
+output_filepath = os.path.join(path_prefix, output_suffix, "normal", output_location, output_name)
+os.path.normpath(output_filepath)
+
+bpy.data.scenes['Scene'].render.filepath = output_filepath
+bpy.ops.render.render(write_still=True)
+
+bpy.data.objects["Camera"].data.type = "PANO"
+bpy.data.objects["Camera"].data.lens = 5
+bpy.context.scene.camera = bpy.data.objects["Camera"]
+
+output_filepath = os.path.join(path_prefix, output_suffix, "pano", output_location, output_name)
 os.path.normpath(output_filepath)
 
 bpy.data.scenes['Scene'].render.filepath = output_filepath
