@@ -1,4 +1,4 @@
-# June Monthly Report - Training a Convnet to Distinguish Cats and Dogs
+# July Monthly Report - Training a Convnet to Distinguish Cats and Dogs
 
 ### Contents
 - [Kaggle Dogs vs. Cats Dataset](#Kaggle-Dogs-vs.-Cats-Dataset)
