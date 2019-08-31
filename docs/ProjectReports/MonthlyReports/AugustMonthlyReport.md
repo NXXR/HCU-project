@@ -29,7 +29,30 @@ Finally the script renders normal an panoramic pictures. During renders of the t
 together, so the test dataset contains the same layout in both perspectives.
 
 ![](../../notes/img/Blender_NormalPanoComparison.png)
-*Sample of test images: normal prespective on the left, equirectangular perspective on the right; corridor in the top
+*Sample of test images: normal perspective on the left, equirectangular perspective on the right; corridor in the top
  row, intersection in the bottom row*
 
+The generated dataset contains 18.000 images, 9.000 images in each perspective (normal and equirectangular). These 
+images are split into 5.000 training images, 2.000 validation images, and 2.000 test images. Each split has an equal 
+amount of corridor and intersection images. 
+
 ### IntersectNet
+The network is structured into three convolutional layers, each followed by a pooling layer to abstract the features.
+ After the main layers, the network hs a layer to flatten the information. During training a 50% dropout is used to 
+ counteract the limited variety of the dataset. Finally, two fully connected layers processes the information and 
+ produce the final prediction value.
+
+Two networks are trained, one with the normal perspective images, and one with the equirectangular images. The 
+training was conducted for 60 epochs, which took approximately 1h 15min.
+
+![](../../notes/img/intersectNet_0831-0849_Accuracy.png)
+![](../../notes/img/intersectNet_0831-0849_Loss.png)
+*Compared Training Accuracy and Loss*
+
+The final results of both networks are shown below:
+
+| Image Type | Accuracy | Loss   |
+|:-----------|---------:|:-------|
+| Normal     |   84.2 % | 0.3153 | 
+| Panorama   |  100.0 % | 0.0005 |
+
