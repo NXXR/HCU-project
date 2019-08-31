@@ -51,25 +51,25 @@ datagen = ImageDataGenerator(rescale=1./255)
 
 norm_train_generator = datagen.flow_from_directory(
     os.path.join(os.getcwd(), "dataset/normal/train"),
-    target_size=(dataset_width, dataset_height),
+    target_size=(dataset_height, dataset_width),
     batch_size=32,
     class_mode="binary"
 )
 pano_train_generator = datagen.flow_from_directory(
     os.path.join(os.getcwd(), "dataset/pano/train"),
-    target_size=(dataset_width, dataset_height),
+    target_size=(dataset_height, dataset_width),
     batch_size=32,
     class_mode="binary"
 )
 norm_validation_generator = datagen.flow_from_directory(
     os.path.join(os.getcwd(), "dataset/normal/validation"),
-    target_size=(dataset_width, dataset_height),
+    target_size=(dataset_height, dataset_width),
     batch_size=32,
     class_mode="binary"
 )
 pano_validation_generator = datagen.flow_from_directory(
     os.path.join(os.getcwd(), "dataset/pano/validation"),
-    target_size=(dataset_width, dataset_height),
+    target_size=(dataset_height, dataset_width),
     batch_size=32,
     class_mode="binary"
 )
