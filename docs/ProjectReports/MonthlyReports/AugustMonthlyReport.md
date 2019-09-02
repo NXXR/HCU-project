@@ -1,4 +1,4 @@
-# July Monthly Report - CG Dataset and IntersectNet
+# August Monthly Report - CG Dataset and IntersectNet
 
 ### Contents
 - [CG Dataset](#CG-Dataset)
