@@ -56,3 +56,14 @@ The final results of both networks are shown below:
 | Normal     |   84.2 % | 0.3153 | 
 | Panorama   |  100.0 % | 0.0005 |
 
+#### Test with Real Images
+To evaluate the ability of the network to distinguish real pictures of corridors and intersections, 30 images, 12 
+images of corridors and intersections each, as well as 6 images of locations hard to distinguish (lobby, outdoors, 
+and staircase pictures).
+However the network only predicts 14 of the 24 labeled pictures correctly (58%). All errors are corridors wrongly 
+predicted as intersections, which means 10 of the 12 corridor pictures are predicted wrongly. This means the network 
+tends to classify pictures as intersections instead of corridors. The reason for this inaccuracy is hard to judge, 
+one possibility is the strong difference between corridors and intersections in the CG dataset, so the network might 
+recognize wider corridors or open spaces as intersections as it learned that corridors are as narrow as the CG 
+dataset suggests (~2m wide corridors). Another reason might be additional, bright light sources and reflections 
+leading the network to assume additional paths, as the corridors in the dataset are only modestly lit.
