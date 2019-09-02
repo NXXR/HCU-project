@@ -66,4 +66,4 @@ tends to classify pictures as intersections instead of corridors. The reason for
 one possibility is the strong difference between corridors and intersections in the CG dataset, so the network might 
 recognize wider corridors or open spaces as intersections as it learned that corridors are as narrow as the CG 
 dataset suggests (~2m wide corridors). Another reason might be additional, bright light sources and reflections 
-leading the network to assume additional paths, as the corridors in the dataset are only modestly lit.
+leading the network to assume additional paths, as the corridors in the dataset are only dimly lit.
