@@ -8,6 +8,7 @@
     - [End To End Learning of Driving Models with Surroundview Cameras and Route Planners](#End-To-End-Learning-of-Driving-Models-with-Surroundview-Cameras-and-Route-Planners)
     - [End To End Navigation with Branch Turning Support Using Convolutional Neural Network](#End-To-End-Navigation-with-Branch-Turning-Support-Using-Convolutional-Neural-Network)
     - [Taskonomy: Disentangling Task Transfer Learning](#Taskonomy:-Disentangling-Task-Transfer-Learning)
+    - [Have I Reached the Intersection](#Have-I-Reached-the-Intersection)
 - [Workstation Setup](#Workstation-Setup)
 - [Tutorial Projects](#Tutorial-Projects)
     - [Classification of Movie Reviews](#Classification-of-Movie-Reviews)
@@ -98,6 +99,17 @@ relationships between learning tasks can be used to avoid minute and expensive i
 successively more abstract representations can be used for multiple related outputs.
 Based on source and target tasks a hypergraph in created to visualize task learning transferability, which can be 
 used to estimate an optimal transfer policy.
+
+### Have I Reached the Intersection
+*[Source](https://cdn.iiit.ac.in/cdn/robotics.iiit.ac.in/uploads/Main/Publications/resources/Dhaivat_et_al_iros17/Intersection_detection.pdf)*
+The project identified the reliable detection of intersection an important problem in autonomous navigation. 
+Additionally the project tries to limit the intersection detection to a monocular video stream, instead of a multi 
+sensor combination. To solve this problem the project implements a compound network of Convolutional Neural Networks 
+and Recurrent Neural Networks. The Convolutional Neural Network is used to extract the visual features of the frames 
+in the video stream, while th Recurrent Neural Network is used to provide the temporal connection between the frames.
+Through a deep connection between the network components allow end-to-end optimization of the model parameters. The 
+resulting Long-Term Recurrent Convolutional Network (LRCN) achieves ~92% accuracy for intersection classification and
+ achieves better results than Networks using single frames.
 
 ## Workstation Setup
 The laptop workstation runs keras 2.2.4 with tensorflow 1.6.0 as backend. The laptop only supports CPU training as it
@@ -235,6 +247,13 @@ the dataset. Without increasing the dataset size the accuracy is likely limited 
  with Python by F. Chollet].
 
 ## IntersectNet
+### Scope of Project
+The Network aims to solve a problem similar to the problem identified in the [Have I Reached the Intersection](#Have-I-Reached-the-Intersection) 
+paper. However, by using equirectangular images it is suspected that the temporal component of the LCRN built in the 
+paper can be circumvented. This project tries to show that the use of equirectangular images can simplify the 
+recognition of intersections. The goal of this project is the creation of a network to recognize and classify indoor 
+corridors and intersections.
+
 ### CG Dataset
 As there are no datasets of solely corridors and intersections that are labeled accordingly, a blender script is 
 created to generate CG renders of corridor samples.
