@@ -346,5 +346,5 @@ While the network performs well on the CG images, it is insufficient for use on 
 To further prove these arguments, future work would focus on either improving the quality of the CG dataset, or
  gathering a dataset of real equirectangular images to properly train a network.
 Additionally, the network can be implemented into a navigation system of a mobile robot to test the detection of
- intersections and allow navigation by simple instructions, i.e. *"turn left at the next intersectio"*, to simplify
+ intersections and allow navigation by simple instructions, i.e. *"turn left at the next intersection"*, to simplify
  robot navigation in indoor corridor environments.
