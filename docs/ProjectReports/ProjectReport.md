@@ -317,7 +317,6 @@ Two networks are trained, one with the normal perspective images, and one with t
 
 ![](../notes/img/intersectNet_0831-0849_Accuracy.png)
 ![](../notes/img/intersectNet_0831-0849_Loss.png)
-*Compared Training Accuracy and Loss*
 
 The final results of both networks are shown below:
 
