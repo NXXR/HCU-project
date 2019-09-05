@@ -323,7 +323,7 @@ The final results of both networks are shown below:
 | Image Type | Accuracy | Loss   |
 |:-----------|---------:|:-------|
 | Normal     |   84.2 % | 0.3153 | 
-| Panorama   |  100.0 % | 0.0005 |
+| Panorama   |   99.9 % | 0.0005 |
 
 #### Test with Real Images
 To evaluate the ability of the network to distinguish real pictures of corridors and intersections, 30 images, 12
