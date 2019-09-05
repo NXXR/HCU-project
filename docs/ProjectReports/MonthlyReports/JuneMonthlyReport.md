@@ -62,12 +62,12 @@ After training the k-fold validation scores are averaged and compared to the val
 |**Total**|**0,8770**|**0,8682**|
 
 Additionally the loss and accuracy are plotted over the training process.
-![](https://github.com/NXXR/HCU-project/blob/master/docs/notes/img/classifyMovieReviews_Loss.png)
-![](https://github.com/NXXR/HCU-project/blob/master/docs/notes/img/classifyMovieReviews_Accuracy.png)
+![](../../notes/img/classifyMovieReviews_Loss.png)
+![](../../notes/img/classifyMovieReviews_Accuracy.png)
 
 The k-fold cross-validation approach performs on average very similar to the hold-out validation model. However, as it
  is training multiple networks, training takes significantly longer. Due to this, hold-out validation is recommended
- when a big dataset is available. With a limited dataset the f-fold cross-validation produces a more stable result as it
+ when a big dataset is available. With a limited dataset the k-fold cross-validation produces a more stable result as it
  is forming the average of several networks that are trained on different variations of the same data.
  
 #### Classification of Newswire Topics
@@ -94,8 +94,8 @@ After training, the networks the show simillar validation scores:
 | Score | 0.7707       | 0.7791          |
 
 Additionally the loss and accuracy are plotted over the training process
-![](https://github.com/NXXR/HCU-project/blob/master/docs/notes/img/classifyNewswireTopics_Loss.png)
-![](https://github.com/NXXR/HCU-project/blob/master/docs/notes/img/classifyNewswireTopics_Accuracy.png)
+![](../../notes/img/classifyNewswireTopics_Loss.png)
+![](../../notes/img/classifyNewswireTopics_Accuracy.png)
 
 While the network without dropout arrives at an optimal loss and accuracy faster, needing less epochs, the network with
  dropout need a longer training time but is very resistant to overfitting. While the training loss and accuracy scores

@@ -190,7 +190,7 @@ Additionally the loss and accuracy are plotted over the training process.
 
 The k-fold cross-validation approach performs on average very similar to the hold-out validation model. However, as it
  is training multiple networks, training takes significantly longer. Due to this, hold-out validation is recommended
- when a big dataset is available. With a limited dataset the f-fold cross-validation produces a more stable result as it
+ when a big dataset is available. With a limited dataset the k-fold cross-validation produces a more stable result as it
  is forming the average of several networks that are trained on different variations of the same data.
  
 ### Classification of Newswire Topics
