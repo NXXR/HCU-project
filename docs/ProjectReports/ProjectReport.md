@@ -20,8 +20,8 @@
 - [IntersectNet](#IntersectNet)
     - [CG Dataset](#CG-Dataset)
     - [Network](#Network)
-        - [Test with Real Images](#Test-with-Real-Images)
-    - [Results and Future Work](#Results-and-Future-Work)
+    - [Test with Real Images](#Test-with-Real-Images)
+- [Results and Future Work](#Results-and-Future-Work)
 
 ## Introduction
 This projects consists of three major parts. First, a survey was conducted to review studies and projects that may be
@@ -210,11 +210,11 @@ The dropout model consists of three layers with a dropout after each layer:
 The optimisation is RMSprop with a learning rate of 0.001 and the loss function is categorical cross-entropy.
 Both networks are trained for 20 epochs.
 
-After training, the networks the show simillar validation scores:
+After training, the networks the show similar validation scores:
 
 |       | With Dropout | Without Dropout |
 |------:|:-------------|:----------------|
-| Score | 0.7707       | 0.7791          |
+| Score | 0,7707       | 0,7791          |
 
 Additionally the loss and accuracy are plotted over the training process
 ![](../notes/img/classifyNewswireTopics_Loss.png)
@@ -232,7 +232,7 @@ The Dogs vs. Cats dataset is provided by Kaggle.com as part of a computer vision
  reduced to 2000 training images, and 1000 images each for validation and testing.
 
 ##### Data Preprocessing and Augmentation
-For preprocessing, the  jpeg pictures are decoded into a pixel grid for each color channel resulting in a tensor of
+For preprocessing, the  JPEG pictures are decoded into a pixel grid for each color channel resulting in a tensor of
  the picture dimensions times the 3 color channels (150 x 150 x 3). After it the tensor is normalized from  pixel
  values in [0, 255] to [0, 1]. To prevent the strain of loading all available pictures, a generator is created that
  streams preprocessed pictures and their binary label from the directory as needed in batches of 20 tensors at a time.
@@ -246,15 +246,15 @@ image before preprocessing:
 - flipping the image along the vertical axis
 
 Any newly created pixels pixels with unknown values during processes like rotations and shifts are filled with the 
-values of their nearest neighbors.
+values of their nearest neighbours.
  
 #### Network Structure and Training
 The planned network is structured to contain four convolutional layers, each followed by a pooling layer to abstract
- and downsample the representation and avoid overfitting. Additionally after the convolutional layers there is a
- layer to flatten the representation and randomly drop out 50% during training to further avoid overfitting.
- Finally there is a fully connected (dense) layer for the classification, as well as a final fully connected layer to
+ and downsample the representation and to avoid overfitting. Additionally, after the convolutional layers there is a
+ layer to flatten the representation and randomly drop out 50% of the weights during training to further avoid 
+ overfitting. Finally there is a fully connected (dense) layer for the classification, as well as a final fully connected layer to
  reduce the features to a single prediction value.
-The Network was then trained on the augmented and preprocessed images for 100 epochs and achieved a final accuracy on
+The Network was then trained on the augmented and preprocessed images for 100 epochs and achieves a final accuracy on
  the test images of 81%.
 
 ![](../notes/img/convnetFromScratch_Loss.png)
@@ -287,7 +287,7 @@ Each intersection option has two different layouts, one with soft, and one with 
 ![](../notes/img/Blender_Schematic_Combined.png)
 *Different options for the centerpiece layout*
 
-After the layout is generated, the camera is placed semi randomly:
+After the layout is generated, the camera is placed semi-randomly:
 - for intersections the camera is placed within the intersection at a random rotation angle.
 - for corridors the camera is placed either inside the centerpiece or inside an adjacent corridor facing towards the
  intersection with a random variation of ±30°.
@@ -295,7 +295,7 @@ After the layout is generated, the camera is placed semi randomly:
 ![](../notes/img/Blender_CamSpawnArea.png)
 *Boundaries of the random camera position*
 
-Finally the script renders normal an panoramic pictures. During renders of the test set both pictures are rendered
+Finally the script renders normal and spherical images. During renders of the test set both pictures are rendered
  together, so the test dataset contains the same layout in both perspectives with the same name.
 
 ![](../notes/img/Blender_NormalPanoComparison.png)
@@ -306,14 +306,14 @@ The generated dataset contains 18.000 images, 9.000 images in each perspective (
  images are split into 5.000 training images, 2.000 validation images, and 2.000 test images. Each split has an equal
  amount of corridor and intersection images.
 
-### Network
+### Network Structure and Training
 The network is structured into three convolutional layers, each followed by a pooling layer to abstract the features.
- After the main layers, the network hs a layer to flatten the information. During training a 50% dropout is used to
- counteract the limited variety of the dataset. Finally, two fully connected layers processes the information and
- produce the final prediction value.
+ After the convolution layers, the network has a layer to flatten the extracted information. During training a 50%
+ dropout is used to counteract the limited variety of the dataset. Finally, two fully connected layers processes the 
+ information and produce the final prediction value.
 
-Two networks are trained, one with the normal perspective images, and one with the equirectangular images. The
- training was conducted for 60 epochs, which took approximately 1h 15min.
+Two networks are trained, one with the normal perspective images, and one with the equirectangular images for
+ comparison. The training was conducted for 60 epochs, which took approximately 1h 15min.
 
 ![](../notes/img/intersectNet_0831-0849_Accuracy.png)
 ![](../notes/img/intersectNet_0831-0849_Loss.png)
@@ -322,22 +322,21 @@ The final results of both networks are shown below:
 
 | Image Type | Accuracy | Loss   |
 |:-----------|---------:|:-------|
-| Normal     |   84.2 % | 0.3153 | 
-| Panorama   |   99.9 % | 0.0005 |
+| Normal     |   0,8420 | 0,3153 | 
+| Panorama   |   0,9999 | 0,0005 |
 
-#### Test with Real Images
+### Test with Real Images
 To evaluate the ability of the network to distinguish real pictures of corridors and intersections, 30 images, 12
  images of corridors and intersections each, as well as 6 images of locations hard to distinguish (lobby, outdoors,
- and staircase pictures).
-However the network only predicts 14 of the 24 labeled pictures correctly (58%). All errors are corridors wrongly
- predicted as intersections, which means 10 of the 12 corridor pictures are predicted wrongly. This means the network
- tends to classify pictures as intersections instead of corridors. The reason for this inaccuracy is hard to judge,
- one possibility is the strong difference between corridors and intersections in the CG dataset, so the network might
- recognize wider corridors or open spaces as intersections as it learned that corridors are as narrow as the CG
- dataset suggests (~2m wide corridors). Another reason might be additional, bright light sources and reflections
- leading the network to assume additional paths, as the corridors in the dataset are only dimly lit.
+ and staircase pictures). However the network only predicts 14 of the 24 labelled pictures correctly (58%). All 
+ errors are corridors wrongly predicted as intersections, which means the network tends to classify pictures as 
+ intersections instead of corridors. The reason for this inaccuracy is hard to judge, one possibility is the strong 
+ difference between corridors and intersections in the CG dataset, so the network might recognize wider corridors or 
+ open spaces as intersections as it learned that corridors are as narrow as the CG dataset suggests (~2m wide 
+ corridors). Another reason might be additional, bright light sources and reflections leading the network to assume 
+ additional paths, as the corridors in the dataset are only dimly lit.
 
-### Results and Future Work
+## Results and Future Work
 While the network performs well on the CG images, it is insufficient for use on real images, likely reasons are the
  limited variety and quality of the CG dataset. Nonetheless, the project shows the advantages of using spherical
  imaging for autonomous navigation and detection tasks. The spherical images reduce the sensors needed for reliable

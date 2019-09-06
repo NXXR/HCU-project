@@ -1,0 +1,164 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{8}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{#1}\fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[\protect\citeauthoryear{{Bhatt}, {Sodhi}, {Pal}, {Balasubramanian},
+  and {Krishna}}{{Bhatt} et~al\mbox{.}}{2017}]%
+        {IntersectNet}
+\bibfield{author}{\bibinfo{person}{D. {Bhatt}}, \bibinfo{person}{D. {Sodhi}},
+  \bibinfo{person}{A. {Pal}}, \bibinfo{person}{V. {Balasubramanian}}, {and}
+  \bibinfo{person}{M. {Krishna}}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Have i reached the intersection: A deep
+  learning-based approach for intersection detection from monocular cameras}.
+  In \bibinfo{booktitle}{\emph{2017 IEEE/RSJ International Conference on
+  Intelligent Robots and Systems (IROS)}}. \bibinfo{pages}{4495--4500}.
+\newblock
+\showISSN{2153-0866}
+\urldef\tempurl%
+\url{https://doi.org/10.1109/IROS.2017.8206317}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Chollet}{Chollet}{2017}]%
+        {DLwP}
+\bibfield{author}{\bibinfo{person}{Francois Chollet}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Deep Learning with Python}
+  (\bibinfo{edition}{1st} ed.)}.
+\newblock \bibinfo{publisher}{Manning Publications Co.},
+  \bibinfo{address}{Greenwich, CT, USA}.
+\newblock
+\showISBNx{1617294438, 9781617294433}
+
+
+\bibitem[\protect\citeauthoryear{Fernandez, Rivas, and Martin}{Fernandez
+  et~al\mbox{.}}{2017}]%
+        {Ni9elf}
+\bibfield{author}{\bibinfo{person}{Nigel Fernandez}, \bibinfo{person}{Francisco
+  Rivas}, {and} \bibinfo{person}{Alberto Martin}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Deep Learning to Detect Objects in Videos
+  from RGB-D Input}}.
+\newblock
+\urldef\tempurl%
+\url{http://jderobot.org/Ni9elf-colab}
+\showURL{%
+\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Hecker, Dai, and Gool}{Hecker
+  et~al\mbox{.}}{2018}]%
+        {E2EDrivingModel}
+\bibfield{author}{\bibinfo{person}{Simon Hecker}, \bibinfo{person}{Dengxin
+  Dai}, {and} \bibinfo{person}{Luc~Van Gool}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{Learning Driving Models with a Surround-View Camera
+  System and a Route Planner}.
+\newblock \bibinfo{journal}{\emph{CoRR}}  \bibinfo{volume}{abs/1803.10158}
+  (\bibinfo{year}{2018}).
+\newblock
+\showeprint[arxiv]{1803.10158}
+\urldef\tempurl%
+\url{http://arxiv.org/abs/1803.10158}
+\showURL{%
+\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Inc.}{Inc.}{2013}]%
+        {Kaggle}
+\bibfield{author}{\bibinfo{person}{Kaggle Inc.}}
+  \bibinfo{year}{2013}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Dogs vs. Cats}}.
+\newblock
+\urldef\tempurl%
+\url{https://www.kaggle.com/c/dogs-vs-cats}
+\showURL{%
+\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Seiya, Carballo, Takeuchi, Miyajima, and
+  Takeda}{Seiya et~al\mbox{.}}{2018}]%
+        {E2ENavigation}
+\bibfield{author}{\bibinfo{person}{Shunya Seiya}, \bibinfo{person}{Alexander
+  Carballo}, \bibinfo{person}{Eijiro Takeuchi}, \bibinfo{person}{Chiyomi
+  Miyajima}, {and} \bibinfo{person}{Kazuya Takeda}.}
+  \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{End-to-End Navigation with Branch Turning Support
+  Using Convolutional Neural Network}.
+\newblock \bibinfo{journal}{\emph{2018 IEEE International Conference on
+  Robotics and Biomimetics (ROBIO)}} (\bibinfo{year}{2018}),
+  \bibinfo{pages}{499--506}.
+\newblock
+
+
+\bibitem[\protect\citeauthoryear{Zamir, Sax, Shen, Guibas, Malik, and
+  Savarese}{Zamir et~al\mbox{.}}{2018}]%
+        {Taskonomy}
+\bibfield{author}{\bibinfo{person}{Amir~Roshan Zamir},
+  \bibinfo{person}{Alexander Sax}, \bibinfo{person}{William~B. Shen},
+  \bibinfo{person}{Leonidas~J. Guibas}, \bibinfo{person}{Jitendra Malik}, {and}
+  \bibinfo{person}{Silvio Savarese}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{Taskonomy: Disentangling Task Transfer Learning}.
+\newblock \bibinfo{journal}{\emph{CoRR}}  \bibinfo{volume}{abs/1804.08328}
+  (\bibinfo{year}{2018}).
+\newblock
+\showeprint[arxiv]{1804.08328}
+\urldef\tempurl%
+\url{http://arxiv.org/abs/1804.08328}
+\showURL{%
+\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Zou, Colburn, Shan, and Hoiem}{Zou
+  et~al\mbox{.}}{2018}]%
+        {LayoutNet}
+\bibfield{author}{\bibinfo{person}{Chuhang Zou}, \bibinfo{person}{Alex
+  Colburn}, \bibinfo{person}{Qi Shan}, {and} \bibinfo{person}{Derek Hoiem}.}
+  \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{LayoutNet: Reconstructing the 3D Room Layout from a
+  Single {RGB} Image}.
+\newblock \bibinfo{journal}{\emph{CoRR}}  \bibinfo{volume}{abs/1803.08999}
+  (\bibinfo{year}{2018}).
+\newblock
+\showeprint[arxiv]{1803.08999}
+\urldef\tempurl%
+\url{http://arxiv.org/abs/1803.08999}
+\showURL{%
+\tempurl}
+
+
+\end{thebibliography}
