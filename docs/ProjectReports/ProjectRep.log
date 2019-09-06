@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.19)  6 SEP 2019 14:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.19)  6 SEP 2019 14:52
 entering extended mode
 **./ProjectRep.tex
 (ProjectRep.tex
@@ -44,6 +44,7 @@ Package acmart Info: Explicitly selecting natbib mode on input line 129.
 Package acmart Info: Not using anonymous mode on input line 137.
 Package acmart Info: Not using timestamp mode on input line 145.
 Package acmart Info: Not using authordraft mode on input line 155.
+Package acmart Info: Using nonacm mode on input line 164.
 Class acmart Info: Using format sigconf, number 4 on input line 164.
 Class acmart Info: Using fontsize 9pt on input line 228.
 
@@ -1157,36 +1158,14 @@ File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 b.cfg"
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 7.0pt on input line 45.
-LaTeX Font Info:    Try loading font information for TS1+LinuxLibertineT-TLF on
- input line 45.
-
-("C:\Users\M.Zeumer\AppData\Local\Programs\MiKTeX 2.9\tex/latex/libertine\ts1li
-nuxlibertinet-tlf.fd"
-File: TS1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for TS1/
-LinuxLibertineT-TLF.
-)
-LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 45.
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `LinuxLibertineT-TLF' (encoding: TS1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 9.0pt on input line 45.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 10.95pt on input line 45.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 45.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 8.0pt on input line 45.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 8.0pt on input line 45.
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 45.
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.2pt on input line 45.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 45.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -1244,10 +1223,26 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\new@ifnextchar' on input line 55.
 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 9.0pt on input line 66.
+LaTeX Font Info:    Try loading font information for TS1+LinuxLibertineT-TLF on
+ input line 70.
+
+("C:\Users\M.Zeumer\AppData\Local\Programs\MiKTeX 2.9\tex/latex/libertine\ts1li
+nuxlibertinet-tlf.fd"
+File: TS1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for TS1/
+LinuxLibertineT-TLF.
+)
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 9.0pt on input line 70.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `LinuxLibertineT-TLF' (encoding: TS1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\begingroup' on input line 74.
@@ -1364,21 +1359,21 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\new@ifnextchar' on input line 96.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2269) has occurred while \output is active []
 
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 144.
+(Font)              scaled to size 9.0pt on input line 171.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 144.
+(Font)              scaled to size 7.0pt on input line 171.
 [2.2]
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/it' will be
 (Font)              scaled to size 9.0pt on input line 223.
  [3.3]
-<../notes/img/convnetFromScratch_Accuracy.png, id=146, 433.62pt x 289.08pt>
+<../notes/img/convnetFromScratch_Accuracy.png, id=141, 433.62pt x 289.08pt>
 File: ../notes/img/convnetFromScratch_Accuracy.png Graphic file (type png)
 <use ../notes/img/convnetFromScratch_Accuracy.png>
 Package pdftex.def Info: ../notes/img/convnetFromScratch_Accuracy.png  used on 
@@ -1388,7 +1383,7 @@ input line 249.
 
 Class acmart Warning: A possible image without description on input line 252.
 
-<../notes/img/convnetFromScratch_Loss.png, id=148, 433.62pt x 289.08pt>
+<../notes/img/convnetFromScratch_Loss.png, id=143, 433.62pt x 289.08pt>
 File: ../notes/img/convnetFromScratch_Loss.png Graphic file (type png)
 <use ../notes/img/convnetFromScratch_Loss.png>
 Package pdftex.def Info: ../notes/img/convnetFromScratch_Loss.png  used on inpu
@@ -1397,10 +1392,7 @@ t line 256.
 
 Class acmart Warning: A possible image without description on input line 259.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<../notes/img/Blender_Schematic_Combined.png, id=154, 240.9pt x 114.6684pt>
+<../notes/img/Blender_Schematic_Combined.png, id=149, 240.9pt x 114.6684pt>
 File: ../notes/img/Blender_Schematic_Combined.png Graphic file (type png)
 <use ../notes/img/Blender_Schematic_Combined.png>
 Package pdftex.def Info: ../notes/img/Blender_Schematic_Combined.png  used on i
@@ -1409,7 +1401,7 @@ nput line 278.
 
 Class acmart Warning: A possible image without description on input line 281.
 
-<../notes/img/Blender_CamSpawnArea.png, id=156, 91.0602pt x 48.18pt>
+<../notes/img/Blender_CamSpawnArea.png, id=151, 91.0602pt x 48.18pt>
 File: ../notes/img/Blender_CamSpawnArea.png Graphic file (type png)
 <use ../notes/img/Blender_CamSpawnArea.png>
 Package pdftex.def Info: ../notes/img/Blender_CamSpawnArea.png  used on input l
@@ -1423,7 +1415,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [4.4 <../notes/img/convnetFromScratch_Accuracy.png> <../notes/img/convnetFromSc
 ratch_Loss.png> <../notes/img/Blender_Schematic_Combined.png>]
-<../notes/img/intersectNet_0831-0849_Accuracy.png, id=171, 433.62pt x 289.08pt>
+<../notes/img/intersectNet_0831-0849_Accuracy.png, id=168, 433.62pt x 289.08pt>
 
 File: ../notes/img/intersectNet_0831-0849_Accuracy.png Graphic file (type png)
 <use ../notes/img/intersectNet_0831-0849_Accuracy.png>
@@ -1434,10 +1426,7 @@ Package pdftex.def Info: ../notes/img/intersectNet_0831-0849_Accuracy.png  used
 
 Class acmart Warning: A possible image without description on input line 320.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<../notes/img/intersectNet_0831-0849_Loss.png, id=172, 433.62pt x 289.08pt>
+<../notes/img/intersectNet_0831-0849_Loss.png, id=169, 433.62pt x 289.08pt>
 File: ../notes/img/intersectNet_0831-0849_Loss.png Graphic file (type png)
 <use ../notes/img/intersectNet_0831-0849_Loss.png>
 Package pdftex.def Info: ../notes/img/intersectNet_0831-0849_Loss.png  used on 
@@ -1449,20 +1438,28 @@ Class acmart Warning: A possible image without description on input line 327.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[5.5 <../notes/img/Blender_CamSpawnArea.png> <../notes/img/intersectNet_0831-08
-49_Accuracy.png> <../notes/img/intersectNet_0831-0849_Loss.png>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 Processing 'acks' comment.
 \openout3 = `comment.cut'.
 
  Comment 'acks' writing to comment.cut.
-Straight input of comment.cut. (comment.cut) (ProjectRep.bbl
+Straight input of comment.cut. (comment.cut
+Underfull \vbox (badness 1577) has occurred while \output is active []
+
+ [5.5 <../notes/img/Blender_CamSpawnArea.png> <../notes/img/intersectNet_0831-0
+849_Accuracy.png> <../notes/img/intersectNet_0831-0849_Loss.png>]) (ProjectRep.
+bbl
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
+(Font)              scaled to size 7.0pt on input line 49.
 LaTeX Info: Redefining \tempurl on input line 79.
 LaTeX Info: Redefining \tempurl on input line 96.
 LaTeX Info: Redefining \tempurl on input line 108.
 LaTeX Info: Redefining \tempurl on input line 141.
 LaTeX Info: Redefining \tempurl on input line 159.
 )
-<../notes/img/classifyMovieReviews_Accuracy.png, id=197, 1445.4pt x 722.7pt>
+<../notes/img/classifyMovieReviews_Accuracy.png, id=192, 1445.4pt x 722.7pt>
 File: ../notes/img/classifyMovieReviews_Accuracy.png Graphic file (type png)
 <use ../notes/img/classifyMovieReviews_Accuracy.png>
 Package pdftex.def Info: ../notes/img/classifyMovieReviews_Accuracy.png  used o
@@ -1475,7 +1472,7 @@ Class acmart Warning: A possible image without description on input line 378.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../notes/img/classifyMovieReviews_Loss.png, id=198, 1445.4pt x 722.7pt>
+<../notes/img/classifyMovieReviews_Loss.png, id=193, 1445.4pt x 722.7pt>
 File: ../notes/img/classifyMovieReviews_Loss.png Graphic file (type png)
 <use ../notes/img/classifyMovieReviews_Loss.png>
 Package pdftex.def Info: ../notes/img/classifyMovieReviews_Loss.png  used on in
@@ -1487,7 +1484,7 @@ Class acmart Warning: A possible image without description on input line 385.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../notes/img/classifyNewswireTopics_Accuracy.png, id=199, 1445.4pt x 722.7pt>
+<../notes/img/classifyNewswireTopics_Accuracy.png, id=194, 1445.4pt x 722.7pt>
 File: ../notes/img/classifyNewswireTopics_Accuracy.png Graphic file (type png)
 <use ../notes/img/classifyNewswireTopics_Accuracy.png>
 Package pdftex.def Info: ../notes/img/classifyNewswireTopics_Accuracy.png  used
@@ -1499,7 +1496,7 @@ Class acmart Warning: A possible image without description on input line 392.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../notes/img/classifyNewswireTopics_Loss.png, id=200, 1445.4pt x 722.7pt>
+<../notes/img/classifyNewswireTopics_Loss.png, id=195, 1445.4pt x 722.7pt>
 File: ../notes/img/classifyNewswireTopics_Loss.png Graphic file (type png)
 <use ../notes/img/classifyNewswireTopics_Loss.png>
 Package pdftex.def Info: ../notes/img/classifyNewswireTopics_Loss.png  used on 
@@ -1511,7 +1508,7 @@ Class acmart Warning: A possible image without description on input line 399.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../notes/img/Blender_NormalPanoComparison.png, id=201, 1003.75pt x 565.11125pt
+<../notes/img/Blender_NormalPanoComparison.png, id=196, 1003.75pt x 565.11125pt
 >
 File: ../notes/img/Blender_NormalPanoComparison.png Graphic file (type png)
 <use ../notes/img/Blender_NormalPanoComparison.png>
@@ -1540,17 +1537,17 @@ Package rerunfilecheck Info: File `ProjectRep.out' has not changed.
 (rerunfilecheck)             Checksum: EF4FABC8701DBC445555C923341B1E13;5841.
  ) 
 Here is how much of TeX's memory you used:
- 18243 strings out of 492902
- 281705 string characters out of 3122405
- 400402 words of memory out of 3000000
- 21357 multiletter control sequences out of 15000+200000
- 137223 words of font info for 248 fonts, out of 3000000 for 9000
+ 18153 strings out of 492902
+ 279585 string characters out of 3122405
+ 397424 words of memory out of 3000000
+ 21308 multiletter control sequences out of 15000+200000
+ 108873 words of font info for 203 fonts, out of 3000000 for 9000
  1302 hyphenation exceptions out of 8191
- 60i,12n,94p,833b,441s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 60i,12n,94p,833b,450s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/M.Zeumer/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/libertin
-e/lbtn_25tcsq.enc}{C:/Users/M.Zeumer/AppData/Local/Programs/MiKTeX 2.9/fonts/en
-c/dvips/libertine/lbtn_naooyc.enc}{C:/Users/M.Zeumer/AppData/Local/Programs/MiK
-TeX 2.9/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{C:/Users/M.Zeumer/AppData/Lo
+e/lbtn_7grukw.enc}{C:/Users/M.Zeumer/AppData/Local/Programs/MiKTeX 2.9/fonts/en
+c/dvips/libertine/lbtn_25tcsq.enc}{C:/Users/M.Zeumer/AppData/Local/Programs/MiK
+TeX 2.9/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{C:/Users/M.Zeumer/AppData/Lo
 cal/Programs/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{C:/Users/M.Z
 eumer/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_76gpa5.e
 nc}<C:/Users/M.Zeumer/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/libe
@@ -1562,9 +1559,9 @@ eT.pfb><C:/Users/M.Zeumer/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
 libertine/LinLibertineTB.pfb><C:/Users/M.Zeumer/AppData/Local/Programs/MiKTeX 2
 .9/fonts/type1/public/libertine/LinLibertineTI.pfb><C:/Users/M.Zeumer/AppData/L
 ocal/Programs/MiKTeX 2.9/fonts/type1/public/newtx/txsys.pfb>
-Output written on ProjectRep.pdf (9 pages, 1554855 bytes).
+Output written on ProjectRep.pdf (9 pages, 1537470 bytes).
 PDF statistics:
- 277 PDF objects out of 1000 (max. 8388607)
+ 274 PDF objects out of 1000 (max. 8388607)
  60 named destinations out of 1000 (max. 500000)
- 47340 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 35564 words of extra memory for PDF output out of 35830 (max. 10000000)
 

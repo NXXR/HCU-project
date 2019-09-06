@@ -1,8 +1,8 @@
-\documentclass[sigconf]{acmart}
+\documentclass[sigconf, nonacm]{acmart}
 \graphicspath{{../notes/img/}}
 \begin{document}
 
-\title[Project Report]{Project Report: Creating a Neural Network to Classify Indoor Corridors}
+\title[Project Report]{Project Report:\\ Creating a Neural Network to Classify Indoor Corridors}
 
 %%
 %% The "author" command and its associated commands are used to define
@@ -85,7 +85,7 @@ However the paper proves that incorporation of surround view cameras and a route
 Taskonomy is a meta-learning project that seeks to find the complex mapping between different tasks.
 This way, relationships between learning tasks can be used to avoid minute and expensive isolated training.
 Additionally, the successively more abstract representations can be used for multiple related outputs.
-Based on source and target tasks a hypergraph in created to visualize task learning transferability, which can be used to estimate an optimal transfer policy.
+Based on source and target tasks a hyper-graph in created to visualize task learning transferability, which can be used to estimate an optimal transfer policy.
 
 \subsection{End-to-End Navigation with Branch Turning Support Using Convolutional Neural Network \cite{E2ENavigation}}
 The project focused on end-to-end training a network to detect intersections and followed assigned trajectories through the intersection.
@@ -103,11 +103,11 @@ The convolutional neural network acts as a visual feature extractor, while the r
 The resulting network was trained on ~1488 sequences extracted and augmented from Oxford RobotCar and Lara traffic-light detection datasets. The resulting Long-Term Recurrent Convolutional Network (LRCN) achieves ~92\% accuracy for intersection classification and the temporal component leads to a significant improvement (2.5-5.5\% improvement) compared to single frame networks without a Recurrent Neural Network component.
 
 \section{Workstation Setup}
-The laptop workstation runs keras 2.2.4 with tensorflow 1.6.0 as backend.
-The laptop only supports CPU training as it is equipped with an AMD Radeon R7 M360 and an OpenCL compatible keras backend for AMD graphics cards could not be found and implemented.
+The laptop workstation runs keras 2.2.4 with tensorflow 1.6.0 as back-end.
+The laptop only supports CPU training as it is equipped with an AMD Radeon R7 M360 and an OpenCL compatible keras back-end for AMD graphics cards could not be found and implemented.
 Due to this limitation it is only used sparingly in training of the initial tutorial projects, as well as analysis and visualization of training results.
 
-The desktop workstation runs keras 2.2.4 too. However, it uses the tensorflow 1.13.1 GPU build as backend.
+The desktop workstation runs keras 2.2.4 too. However, it uses the tensorflow 1.13.1 GPU build as back-end.
 The Desktop fully supports GPU enhanced training, as it is equipped with an NVIDIA Quadro K620 graphics card.
 Because of the GPU enhanced training, it is used to train the tutorial projects so far.
 
@@ -271,7 +271,7 @@ This project tries to show that the use of equirectangular images can simplify t
 The goal of this project is the creation of a network to recognize and classify indoor corridors and intersections.
 
 \subsection{CG Dataset}
-As there are no datasets of solely corridors and intersections that are taken at the correct height for a mobile robot, and are labeled correctly, a blender script is created to generate CG renders of corridor samples.
+As there are no datasets of solely corridors and intersections that are taken at the correct height for a mobile robot, and are labelled correctly, a blender script is created to generate CG renders of corridor samples.
 
 \begin{figure}[h]
   \centering
@@ -327,7 +327,7 @@ During training a 50\% dropout is used to counteract the limited variety of the 
 \end{figure}
 
 Two networks are trained, one with the normal perspective images, and one with the equirectangular images for comparison (Fig.: \ref{fig:IntersectNetAcc} \& \ref{fig:IntersectNetLoss}).
-The training was conducted for 60 epochs, which took approximately 1h 15min.
+The training was conducted for 60 epochs, which took approximately 1 h 15 min.
 
 \begin{table}[h]
   \caption{Accuracies and Losses of IntersectNet Models}
@@ -348,7 +348,7 @@ The final results of both networks are shown in Table \ref{tab:IntersectNetAccLo
 To evaluate the ability of the network to distinguish real pictures of corridors and intersections, 30 images, 12 images of corridors and intersections each, as well as 6 images of locations hard to distinguish (lobby, outdoors, and staircase pictures).
 However the network only predicts 14 of the 24 labelled pictures correctly (58\%).
 All errors are corridors wrongly predicted as intersections, which means the network tends to classify pictures as intersections instead of corridors.
-The reason for this inaccuracy is hard to judge, one possibility is the strong difference between corridors and intersections in the CG dataset, so the network might recognize wider corridors or open spaces as intersections as it learned that corridors are as narrow as the CG dataset suggests (~2m wide corridors).
+The reason for this inaccuracy is hard to judge, one possibility is the strong difference between corridors and intersections in the CG dataset, so the network might recognize wider corridors or open spaces as intersections as it learned that corridors are as narrow as the CG dataset suggests (~2 m wide corridors).
 Another reason might be some bright light sources and reflections leading the network to assume additional paths, as the corridors in the dataset are only dimly lit.
 
 \section{Results and Future Work}

@@ -100,7 +100,7 @@ The steering angle and speed are rather easy for the network to predict, as the 
 Taskonomy is a meta-learning project that seeks to find the complex mapping between different tasks. This way,
  relationships between learning tasks can be used to avoid minute and expensive isolated training. Additionally, the
  successively more abstract representations can be used for multiple related outputs.
-Based on source and target tasks a hypergraph in created to visualize task learning transferability, which can be
+Based on source and target tasks a hyper-graph in created to visualize task learning transferability, which can be
  used to estimate an optimal transfer policy.
 
 ### End To End Navigation with Branch Turning Support Using Convolutional Neural Network
@@ -131,12 +131,12 @@ The project identified the reliable detection of intersection an important probl
  without a Recurrent Neural Network component.
 
 ## Workstation Setup
-The laptop workstation runs keras 2.2.4 with tensorflow 1.6.0 as backend. The laptop only supports CPU training as it
- is equipped with an AMD Radeon R7 M360 and an OpenCL compatible keras backend for AMD graphics cards could not be 
+The laptop workstation runs keras 2.2.4 with tensorflow 1.6.0 as back-end. The laptop only supports CPU training as it
+ is equipped with an AMD Radeon R7 M360 and an OpenCL compatible keras back-end for AMD graphics cards could not be 
  found and implemented. Due to this limitation it is only used sparingly in training of the initial tutorial projects,
  as well as analysis and visualization of training results.
 
-The desktop workstation runs keras 2.2.4 too. However, it uses the tensorflow 1.13.1 GPU build as backend. The Desktop
+The desktop workstation runs keras 2.2.4 too. However, it uses the tensorflow 1.13.1 GPU build as back-end. The Desktop
  fully supports GPU enhanced training, as it is equipped with an NVIDIA Quadro K620 graphics card. Because of the GPU
  enhanced training, it is used to train the tutorial projects so far.
 
@@ -276,7 +276,7 @@ The Network aims to solve a problem similar to the problem identified in the [Ha
 
 ### CG Dataset
 As there are no datasets of solely corridors and intersections that are taken at the correct height for a mobile
- robot, and are labeled correctly, a blender script is created to generate CG renders of corridor samples.
+ robot, and are labelled correctly, a blender script is created to generate CG renders of corridor samples.
 The Script has a list of different centerpieces for the different amount of possible connections to
  adjacent corridors. The scene is deemed a corridor, if it has two or less connections, resulting in a straight
  corridor, a corner, or a dead end. If the centerpiece has three or four connections, it is considered an intersection.
@@ -313,7 +313,7 @@ The network is structured into three convolutional layers, each followed by a po
  information and produce the final prediction value.
 
 Two networks are trained, one with the normal perspective images, and one with the equirectangular images for
- comparison. The training was conducted for 60 epochs, which took approximately 1h 15min.
+ comparison. The training was conducted for 60 epochs, which took approximately 1 h 15 min.
 
 ![](../notes/img/intersectNet_0831-0849_Accuracy.png)
 ![](../notes/img/intersectNet_0831-0849_Loss.png)
@@ -332,7 +332,7 @@ To evaluate the ability of the network to distinguish real pictures of corridors
  errors are corridors wrongly predicted as intersections, which means the network tends to classify pictures as 
  intersections instead of corridors. The reason for this inaccuracy is hard to judge, one possibility is the strong 
  difference between corridors and intersections in the CG dataset, so the network might recognize wider corridors or 
- open spaces as intersections as it learned that corridors are as narrow as the CG dataset suggests (~2m wide 
+ open spaces as intersections as it learned that corridors are as narrow as the CG dataset suggests (~2 m wide 
  corridors). Another reason might be additional, bright light sources and reflections leading the network to assume 
  additional paths, as the corridors in the dataset are only dimly lit.
 
