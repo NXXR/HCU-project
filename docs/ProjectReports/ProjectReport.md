@@ -15,7 +15,7 @@
     - [Classification of Newswire Topics](#Classification-of-Newswire-Topics)
     - [Classification of Dog and Cat Images](#Classification-of-Dog-and-Cat-Images)
         - [Kaggle Dogs vs. Cats Dataset](#Kaggle-Dogs-vs.-Cats-Dataset)
-            - [Data Preprocessing and Augmentation](#Data-Preprocessing-and-Augmentation)
+        - [Data Preprocessing and Augmentation](#Data-Preprocessing-and-Augmentation)
         - [Network Structure and Training](#Network-Structure-and-Training)
 - [IntersectNet](#IntersectNet)
     - [CG Dataset](#CG-Dataset)
@@ -231,7 +231,7 @@ The Dogs vs. Cats dataset is provided by Kaggle.com as part of a computer vision
  25000 images, 12500 of each dogs and cats. To speed up training and test image augmentation methods, the dataset is
  reduced to 2000 training images, and 1000 images each for validation and testing.
 
-##### Data Preprocessing and Augmentation
+#### Data Preprocessing and Augmentation
 For preprocessing, the  JPEG pictures are decoded into a pixel grid for each color channel resulting in a tensor of
  the picture dimensions times the 3 color channels (150 x 150 x 3). After it the tensor is normalized from  pixel
  values in [0, 255] to [0, 1]. To prevent the strain of loading all available pictures, a generator is created that
