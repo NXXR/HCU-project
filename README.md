@@ -1,4 +1,4 @@
-# HCU-Project Report
+# Project Report
 
 ## Contents
 - [Introduction](#Introduction)
@@ -185,8 +185,8 @@ After training the k-fold validation scores are averaged and compared to the val
 |**Total**|**0,8770**|**0,8682**|
 
 Additionally the loss and accuracy are plotted over the training process.
-![](../notes/img/classifyMovieReviews_Loss.png)
-![](../notes/img/classifyMovieReviews_Accuracy.png)
+![](https://github.com/NXXR/HCU-project/blob/master/docs/notes/img/classifyMovieReviews_Loss.png)
+![](https://github.com/NXXR/HCU-project/blob/master/docs/notes/img/classifyMovieReviews_Accuracy.png)
 
 The k-fold cross-validation approach performs on average very similar to the hold-out validation model. However, as it
  is training multiple networks, training takes significantly longer. Due to this, hold-out validation is recommended
@@ -217,8 +217,8 @@ After training, the networks the show similar validation scores:
 | Score | 0,7707       | 0,7791          |
 
 Additionally the loss and accuracy are plotted over the training process
-![](../notes/img/classifyNewswireTopics_Loss.png)
-![](../notes/img/classifyNewswireTopics_Accuracy.png)
+![](https://github.com/NXXR/HCU-project/blob/master/docs/notes/img/classifyNewswireTopics_Loss.png)
+![](https://github.com/NXXR/HCU-project/blob/master/docs/notes/img/classifyNewswireTopics_Accuracy.png)
 
 While the network without dropout arrives at an optimal loss and accuracy faster, needing less epochs, the network with
  dropout need a longer training time but is very resistant to overfitting. While the training loss and accuracy scores
@@ -231,7 +231,7 @@ The Dogs vs. Cats dataset is provided by Kaggle.com as part of a computer vision
  25000 images, 12500 of each dogs and cats. To speed up training and test image augmentation methods, the dataset is
  reduced to 2000 training images, and 1000 images each for validation and testing.
 
-#### Data Preprocessing and Augmentation
+##### Data Preprocessing and Augmentation
 For preprocessing, the  JPEG pictures are decoded into a pixel grid for each color channel resulting in a tensor of
  the picture dimensions times the 3 color channels (150 x 150 x 3). After it the tensor is normalized from  pixel
  values in [0, 255] to [0, 1]. To prevent the strain of loading all available pictures, a generator is created that
@@ -257,8 +257,8 @@ The planned network is structured to contain four convolutional layers, each fol
 The Network was then trained on the augmented and preprocessed images for 100 epochs and achieves a final accuracy on
  the test images of 81%.
 
-![](../notes/img/convnetFromScratch_Loss.png)
-![](../notes/img/convnetFromScratch_Accuracy.png)
+![](https://github.com/NXXR/HCU-project/blob/master/docs/notes/img/convnetFromScratch_Loss.png)
+![](https://github.com/NXXR/HCU-project/blob/master/docs/notes/img/convnetFromScratch_Accuracy.png)
 
 While 81-82% accuracy is not the best possible result, the network shows that training a network on a small
  but augmented dataset still shows an increase in accuracy of about 15% relative to a network trained without
@@ -284,7 +284,7 @@ Each intersection option has two different layouts, one with soft, and one with 
  centerpiece is rotated randomly in 90°-steps. The script also uses a list of different Textures for floor, ceiling
  and walls to further randomize the scene.
 
-![](../notes/img/Blender_Schematic_Combined.png)
+![](https://github.com/NXXR/HCU-project/blob/master/docs/notes/img/Blender_Schematic_Combined.png)
 *Different options for the centerpiece layout*
 
 After the layout is generated, the camera is placed semi-randomly:
@@ -292,13 +292,13 @@ After the layout is generated, the camera is placed semi-randomly:
 - for corridors the camera is placed either inside the centerpiece or inside an adjacent corridor facing towards the
  intersection with a random variation of ±30°.
 
-![](../notes/img/Blender_CamSpawnArea.png)
+![](https://github.com/NXXR/HCU-project/blob/master/docs/notes/img/Blender_CamSpawnArea.png)
 *Boundaries of the random camera position*
 
 Finally the script renders normal and spherical images. During renders of the test set both pictures are rendered
  together, so the test dataset contains the same layout in both perspectives with the same name.
 
-![](../notes/img/Blender_NormalPanoComparison.png)
+![](https://github.com/NXXR/HCU-project/blob/master/docs/notes/img/Blender_NormalPanoComparison.png)
 *Sample of test images: normal perspective on the left, equirectangular perspective on the right; corridor in the top
  row, intersection in the bottom row*
 
@@ -315,8 +315,8 @@ The network is structured into three convolutional layers, each followed by a po
 Two networks are trained, one with the normal perspective images, and one with the equirectangular images for
  comparison. The training was conducted for 60 epochs, which took approximately 1 h 15 min.
 
-![](../notes/img/intersectNet_0831-0849_Accuracy.png)
-![](../notes/img/intersectNet_0831-0849_Loss.png)
+![](https://github.com/NXXR/HCU-project/blob/master/docs/notes/img/intersectNet_0831-0849_Accuracy.png)
+![](https://github.com/NXXR/HCU-project/blob/master/docs/notes/img/intersectNet_0831-0849_Loss.png)
 
 The final results of both networks are shown below:
 
