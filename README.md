@@ -8,7 +8,7 @@
     - [End To End Learning of Driving Models with Surroundview Cameras and Route Planners](#End-To-End-Learning-of-Driving-Models-with-Surroundview-Cameras-and-Route-Planners)
     - [Taskonomy: Disentangling Task Transfer Learning](#taskonomy-disentangling-task-transfer-learning)
     - [End To End Navigation with Branch Turning Support Using Convolutional Neural Network](#End-To-End-Navigation-with-Branch-Turning-Support-Using-Convolutional-Neural-Network)
-    - [Have I Reached the Intersection: A Deep Learning based Approach for Intersection Detection from Monocular Cameras](#Have-I-Reached-the-Intersection:-A-Deep-Learning-based-Approach-for-Intersection-Detection-from-Monocular-Cameras)
+    - [Have I Reached the Intersection: A Deep Learning based Approach for Intersection Detection from Monocular Cameras](#have-i-reached-the-intersection-a-deep-learning-based-approach-for-intersection-detection-from-monocular-cameras)
 - [Workstation Setup](#Workstation-Setup)
 - [Tutorial Projects](#Tutorial-Projects)
     - [Classification of Movie Reviews](#Classification-of-Movie-Reviews)
